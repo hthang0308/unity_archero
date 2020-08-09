@@ -15,5 +15,8 @@ public class AttackControl : BaseMonoBehaviour
 
     public override void UpdateNormal()
     {
+        //Switch
+
+        //curAtk.attack
     }
 }

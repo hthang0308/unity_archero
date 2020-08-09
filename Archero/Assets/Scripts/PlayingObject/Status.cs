@@ -12,7 +12,7 @@ public class Status : BaseMonoBehaviour
         int i = 0;
         while (i<effects.Count)
         {
-            effects[i].UpdateNormal(Time.deltaTime, objectInfo);
+            effects[i].OnUpdateNormal(Time.deltaTime, objectInfo);
             if (effects[i].deleted)
             {
                 effects[i].OnDisable(objectInfo);

@@ -35,7 +35,7 @@ public class EffectBase
     protected Behavior behavior;
 
     //Need to call when is added
-    public void OnEnable(LivingObjectInfo target)
+    public virtual void OnEnable(LivingObjectInfo target)
     {
         //set the countDown
         countDownDelayPerAffect = delayPerAffect;
@@ -43,12 +43,12 @@ public class EffectBase
     }
 
     //Need to call when is removed
-    public void OnDisable(LivingObjectInfo target)
+    public virtual void OnDisable(LivingObjectInfo target)
     {
     }
 
     //Need to call in Update of Object had this effect
-    public void UpdateNormal(float time, LivingObjectInfo target)
+    public void OnUpdateNormal(float time, LivingObjectInfo target)
     {
         //countDown the time and do Affect
         countDownDelayPerAffect -= time;
