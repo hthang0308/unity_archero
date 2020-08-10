@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthBase : BaseMonoBehaviour
 {
-    protected float hP;
+    [SerializeField] protected float hP;
     protected float shield;
 
     public void TakeDmage(float dmg)

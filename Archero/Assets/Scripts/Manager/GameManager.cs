@@ -12,6 +12,13 @@ public class GameManager : MonoBehaviour
     }
 
     public PlayerInfo player;
+    public PlayerManager playerManager;
+    public FixedJoystick movingInput;
+
+    void Awake()
+    {
+        playerManager = new PlayerManager(player);
+    }
     
     // Start is called before the first frame update
     void Start()
@@ -22,6 +29,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        GetInput();
+    }
+
+    //maybe temporary handle the input
+    void GetInput()
+    {
+        playerManager.GetInput();
     }
 }

@@ -12,13 +12,16 @@ public class MovingBase : BaseMonoBehaviour
 
     public override void UpdateNormal()
     {
-        base.UpdateNormal();
+        Move();
     }
 
     protected void Move()
     {
         //Move the object
         if (direction != Vector3.zero)
-            rigidbody.velocity = direction * speed;
+        {
+            transform.rotation = Quaternion.LookRotation(direction, Vector3.up); 
+            rigidbody.velocity = transform.forward * maxSpeed;
+        }
     }
 }
