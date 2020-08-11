@@ -7,6 +7,8 @@ public class HealthBase : BaseMonoBehaviour
     [SerializeField] protected float hP;
     protected float shield;
 
+
+    bool isDead = false;
     public void TakeDmage(float dmg)
     {
         //there is a shield
@@ -23,6 +25,13 @@ public class HealthBase : BaseMonoBehaviour
             }
         }
         else hP -= dmg;
+        if ((hP < 0)&&(!isDead))
+            OnDeath();
+    }
+    protected virtual void OnDeath()
+    {
+        isDead = true;
+        gameObject.SetActive(false);
     }
 
 }
