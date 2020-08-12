@@ -24,8 +24,8 @@ public class Status : BaseMonoBehaviour
 
     public void AddEffect(EffectBase effect)
     {
-        effect.OnEnable(objectInfo);
-        effects.Add(effect);
+        if (effect.OnEnable(objectInfo))
+            effects.Add(effect);
     }
 
     public void RemoveEffect(EffectBase effect)
