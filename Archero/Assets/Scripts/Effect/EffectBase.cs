@@ -61,8 +61,8 @@ public class EffectBase : IEquatable<EffectBase>
         {
             case Behavior.Ignore:
                 if (targetEffects.IndexOf(this) != -1)
-                    break;
-                return false;
+                    return false;
+                break;
             case Behavior.Normal:
                 break;
             case Behavior.Replace:
