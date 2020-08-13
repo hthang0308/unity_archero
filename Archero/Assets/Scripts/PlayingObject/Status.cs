@@ -5,7 +5,7 @@ using UnityEngine;
 public class Status : BaseMonoBehaviour
 {
     [HideInInspector] public List<EffectBase> effects = new List<EffectBase>();
-    protected LivingObjectInfo objectInfo;
+    [SerializeField] protected LivingObjectInfo objectInfo;
 
     public override void UpdateNormal()
     {
@@ -24,8 +24,8 @@ public class Status : BaseMonoBehaviour
 
     public void AddEffect(EffectBase effect)
     {
-        effect.OnEnable(objectInfo);
-        effects.Add(effect);
+        if (effect.OnEnable(objectInfo))
+            effects.Add(effect);
     }
 
     public void RemoveEffect(EffectBase effect)
