@@ -17010,7 +17010,7 @@ GameObject:
   - component: {fileID: 1345176041}
   - component: {fileID: 1345176035}
   - component: {fileID: 1345176037}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19871,7 +19871,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1550714297}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FireTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
