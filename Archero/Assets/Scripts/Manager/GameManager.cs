@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        AnimatorParameters.Init();
     }
 
     // Start is called before the first frame update

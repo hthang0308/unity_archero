@@ -8,20 +8,14 @@ public class PlayerAnimator : BaseMonoBehaviour
 
     //Moving
     protected bool isMoving;
-    protected int isMovingID;
 
     public bool IsMoving
     {
         set
         {
             isMoving = value;
-            animator.SetBool(isMovingID, isMoving);
+            animator.SetBool(AnimatorParameters.isMovingID, isMoving);
         }
     }
 
-    public override void Awake()
-    {
-        base.Awake();
-        isMovingID = Animator.StringToHash("isMoving");
-    }
 }
