@@ -27,6 +27,7 @@ public class HealthBase : BaseMonoBehaviour
         else hP -= dmg;
         if ((hP < 0)&&(!isDead))
             OnDeath();
+        Debug.Log(hP);
     }
     protected virtual void OnDeath()
     {

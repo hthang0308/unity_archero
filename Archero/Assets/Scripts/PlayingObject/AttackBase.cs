@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class AttackBase : BaseMonoBehaviour
 {
-    protected bool canAttack = true;
     protected bool isAttack = false;
-    [SerializeField] protected float delayNextAttack;
+    [SerializeField] protected float delayNextAttack = 3.0f;
+    [SerializeField] protected Transform fireTransform;
     protected float countDownDelayNextAttack;
 
-    protected DamageSourceBase dmgSource;
-
-    public void OnEnable()
+    public virtual void OnEnable()
     {
         //set countDown
         countDownDelayNextAttack = delayNextAttack;
+        isAttack = true;
 
     }
 
@@ -23,29 +22,39 @@ public class AttackBase : BaseMonoBehaviour
         //Attacking
         if (isAttack)
             Attacking();
-        else if (!canAttack)
+        else
         {
             countDownDelayNextAttack -= Time.deltaTime;
             if (countDownDelayNextAttack <= 0f)
             {
-                canAttack = true;
+                isAttack = true;
                 countDownDelayNextAttack = delayNextAttack;
             }
         }
-        
-    }
 
-    public virtual void Attack()
-    {
-        //Do Attack when called
-        isAttack = true;
-        canAttack = false;
     }
 
     protected virtual void Attacking()
     {
+        //when isAttack turn on --> attacking --> finished??? --> turn off
     }
 
+}
 
+public class AttackBase<T> : AttackBase where T:DamageSourceBase
+{
+    protected ObjectPooling<T> dmgPool = new ObjectPooling<T>();
+    [SerializeField] protected T dmgPrefab;
+
+    public override void Awake()
+    {
+        base.Awake();
+        dmgPool.GrowPool(dmgPrefab, 5);
+    }
+
+    public override void UpdateFixed()
+    {
+        dmgPool.UpdateFixed();
+    }
 
 }

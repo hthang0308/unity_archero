@@ -4,10 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class EffectBase
+public class EffectBase : IEquatable<EffectBase>
 {
-    //proceed the Add & Remove Behavior
-    //Compare for Remove (IEquatable)
     public const float FOREVER = 100000; //use for effect last forever
 
     public enum Type
@@ -18,28 +16,68 @@ public class EffectBase
 
     public enum Behavior
     {
-        Add,
-        Replace
+        Normal, //add normally
+        Replace, //replace the exist one with the new one
+        Ignore //don't add the effect
     }
 
     //delay for next affect
-    [SerializeField] protected float delayPerAffect = 1f;
+    protected float delayPerAffect = 1f;
     protected float countDownDelayPerAffect;
 
     //duration of effect
-    [SerializeField] protected float duration = 6f;
+    protected float duration = 6f;
     protected float countDownDuration;
     public bool deleted = false;
 
     protected Type type;
     protected Behavior behavior;
 
+    #region constructor
+    public EffectBase()
+    {
+
+    }
+
+    public EffectBase(EffectBaseData data)
+    {
+        type = data.Type;
+        behavior = data.Behavior;
+        delayPerAffect = data.DelayPerAffect;
+        duration = data.Duration;
+    }
+    #endregion
+
     //Need to call when is added
-    public virtual void OnEnable(LivingObjectInfo target)
+    public virtual bool OnEnable(LivingObjectInfo target)   //if can add this effect to the status list, return true
     {
         //set the countDown
         countDownDelayPerAffect = delayPerAffect;
         countDownDuration = duration;
+
+        List<EffectBase> targetEffects = target.status.effects;
+
+        switch (behavior)
+        {
+            case Behavior.Ignore:
+                if (targetEffects.IndexOf(this) != -1)
+                    return false;
+                break;
+            case Behavior.Normal:
+                break;
+            case Behavior.Replace:
+                int tmp = targetEffects.IndexOf(this);
+                if (tmp != -1)
+                {
+                    targetEffects[tmp] = this;
+                    return false;
+                }
+                break;
+            default:
+                break;
+        }
+
+        return true;
     }
 
     //Need to call when is removed
@@ -48,7 +86,7 @@ public class EffectBase
     }
 
     //Need to call in Update of Object had this effect
-    public void OnUpdateNormal(float time, LivingObjectInfo target)
+    public virtual void OnUpdateNormal(float time, LivingObjectInfo target)
     {
         //countDown the time and do Affect
         countDownDelayPerAffect -= time;
@@ -62,9 +100,15 @@ public class EffectBase
             deleted = true;
     }
 
-    protected void DoAffect(LivingObjectInfo target)
+    protected virtual void DoAffect(LivingObjectInfo target)
     {
 
     }
 
+    public bool Equals(EffectBase other)
+    {
+        if (type == other.type && behavior == other.behavior)
+            return true;
+        return false;
+    }
 }
