@@ -6,11 +6,22 @@ public class AttackControl : BaseMonoBehaviour
 {
     [SerializeField] protected List<AttackBase> attacks;
     protected AttackBase curAttack;
-    [HideInInspector] public int switchAttack = 0;
+    [HideInInspector] private int switchAttack = -1;
 
-    public void Start()
-    {
-        curAttack = attacks[0];
+    public int SwitchAttack { get => switchAttack;
+        set
+        {
+            if (switchAttack == value)
+                return;
+            if (switchAttack != -1)
+                curAttack.enabled = false;
+            if (value != -1)
+            {
+                curAttack = attacks[value];
+                curAttack.enabled = true;
+            }
+            switchAttack = value;
+        }
     }
 
     public override void UpdateNormal()
