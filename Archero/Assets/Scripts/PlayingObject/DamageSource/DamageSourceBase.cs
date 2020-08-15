@@ -4,9 +4,19 @@ using UnityEngine;
 
 public class DamageSourceBase : BaseMonoBehaviour
 {
+    protected int layerToIgnore = 0;
     public float atkPoint = 10f;
-    public List<EffectBase> effects;
-    
+    public List<EffectBase> effects = new List<EffectBase>();
+
+    public override void Awake()
+    {
+        base.Awake();
+        int curLayer = gameObject.layer;
+        for (int i = 0; i < 32; i++)
+            if (Physics.GetIgnoreLayerCollision(curLayer, i))
+                layerToIgnore |= (1 << i);
+    }
+
     protected virtual void DoDamage(LivingObjectInfo targetInfo) //missing PlayingObjectInfo
     {
         targetInfo.health.TakeDmage(atkPoint);
