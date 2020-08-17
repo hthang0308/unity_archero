@@ -4,11 +4,22 @@ using UnityEngine;
 
 public class MovingBase : BaseMonoBehaviour
 {
+    [SerializeField] protected PlayerAnimator animator;
     [SerializeField] protected Rigidbody rigidbody;
     [SerializeField] protected float maxSpeed;
     protected float speed;
-    [HideInInspector] public bool isMoving = false;
+    [HideInInspector] private bool isMoving = false;
     protected Vector3 direction = new Vector3();
+
+    public bool IsMoving { get => isMoving;
+        set
+        {
+            if (isMoving == value)
+                return;
+            animator.IsMoving = value;
+            isMoving = value;
+        }
+    }
 
     public override void UpdateNormal()
     {
@@ -17,13 +28,15 @@ public class MovingBase : BaseMonoBehaviour
 
     protected void Move()
     {
-        isMoving = false; 
         //Move the object
         if (direction != Vector3.zero)
         {
-            isMoving = true;
             transform.rotation = Quaternion.LookRotation(direction, Vector3.up); 
             rigidbody.velocity = transform.forward * maxSpeed;
+            IsMoving = true;
+            return;
         }
+
+        IsMoving = false;
     }
 }

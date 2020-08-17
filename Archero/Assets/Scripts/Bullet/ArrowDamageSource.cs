@@ -59,6 +59,7 @@ public class ArrowDamageSource : DamageSourceBase
 
         if (Physics.Raycast(transform.position, direction, out hit, deltaMovement, ~layerToIgnore))
         {
+            //Fix Do Damage to enemy later
             LivingObjectInfo target = hit.collider.GetComponent<LivingObjectInfo>();
             if (target != null)
                 DoDamage(target);

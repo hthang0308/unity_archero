@@ -8,7 +8,7 @@ public class PlayerAttackControl : AttackControl
 
     public override void UpdateNormal()
     {
-        if (!playerMoving.isMoving)
+        if (!playerMoving.IsMoving)
             SwitchAttack = 0;
         else SwitchAttack = -1;
     }
