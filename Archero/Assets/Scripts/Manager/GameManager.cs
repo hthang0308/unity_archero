@@ -8,14 +8,16 @@ public class GameManager : MonoBehaviour
     public GameManager()
     {
         if (instance == null)
+        {
             instance = this;
+            AnimatorParameters.Init();
+        }
     }
 
     public PlayerInfo player;
 
     void Awake()
     {
-        AnimatorParameters.Init();
     }
 
     // Start is called before the first frame update
