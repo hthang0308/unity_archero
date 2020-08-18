@@ -1,14 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthBase : BaseMonoBehaviour
 {
-    [SerializeField] protected float hP;
+    [SerializeField] protected HealthBarUI healthBarUI;
+
+    protected float hP;
+    [SerializeField] protected float maxHP = 100f;
+
     protected float shield;
+    [HideInInspector] public bool isDead = false;
 
 
-    bool isDead = false;
+    protected void OnEnable()
+    {
+        hP = maxHP;
+        healthBarUI.SetHealthUI(hP/maxHP);
+    }
+
     public void TakeDmage(float dmg)
     {
         //there is a shield
@@ -25,14 +36,18 @@ public class HealthBase : BaseMonoBehaviour
             }
         }
         else hP -= dmg;
-        if ((hP < 0)&&(!isDead))
+        healthBarUI.SetHealthUI(hP / maxHP);
+        if ((hP <= 0)&&(!isDead))
             OnDeath();
         Debug.Log(hP);
     }
+
     protected virtual void OnDeath()
     {
         isDead = true;
         gameObject.SetActive(false);
     }
+
+    
 
 }
