@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimatorBase : MonoBehaviour
+public class AnimatorBase : BaseMonoBehaviour
 {
     public Animator animator;
 
