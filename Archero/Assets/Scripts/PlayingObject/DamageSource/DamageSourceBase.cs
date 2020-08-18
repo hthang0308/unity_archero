@@ -17,7 +17,7 @@ public class DamageSourceBase : BaseMonoBehaviour
                 layerToIgnore |= (1 << i);
     }
 
-    protected virtual void DoDamage(LivingObjectInfo targetInfo) //missing PlayingObjectInfo
+    protected virtual void DoDamage(LivingObjectInfo targetInfo)
     {
         Debug.Log(targetInfo);
         targetInfo.health.TakeDmage(atkPoint);

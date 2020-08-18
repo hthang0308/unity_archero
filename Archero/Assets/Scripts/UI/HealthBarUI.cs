@@ -21,8 +21,7 @@ public class HealthBarUI : BaseMonoBehaviour
 
     public override void UpdateLate()
     {
-        transform.position = parent.position + offset;
-        transform.rotation = startingRotation;
+        transform.SetPositionAndRotation(parent.position + offset, startingRotation);
     }
 
     public void SetHealthUI(float healthPercent)

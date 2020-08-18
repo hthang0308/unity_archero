@@ -59,18 +59,19 @@ public class ArrowDamageSource : DamageSourceBase
 
         if (Physics.Raycast(transform.position, direction, out hit, deltaMovement, ~layerToIgnore))
         {
-            //Fix Do Damage to enemy later
-            LivingObjectInfo target = hit.collider.GetComponent<LivingObjectInfo>();
-            //if (target != null)
-            //    DoDamage(target);
-            if ((target != null) && (target.gameObject.layer == 16))
-                DoDamage(target);
-
-            if ((hit.collider.gameObject.layer | enemyLayer) != 0 && penetrate)
+            if ((hit.collider.gameObject.layer & enemyLayer) != 0)
             {
-                transform.position += deltaMovement * direction;
+                LivingObjectInfo target = hit.collider.GetComponent<LivingObjectInfo>();
+                DoDamage(target);
+                if (penetrate)
+                    transform.position += deltaMovement * direction;
+                else
+                {
+                    transform.position = hit.point;
+                    disable = true;
+                }
             }
-            else if ((hit.collider.gameObject.layer | wallLayer) != 0 && bouncingWall)
+            else if ((hit.collider.gameObject.layer & wallLayer) != 0 && bouncingWall)
             {
                 //recalculate the real distance and add back to countDown
                 float realDeltaMovement = (transform.position - hit.point).magnitude;

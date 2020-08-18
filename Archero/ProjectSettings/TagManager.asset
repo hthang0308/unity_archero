@@ -20,7 +20,7 @@ TagManager:
   - Trap
   - Player
   - Camera
-  - Bullet
+  - PlayerBullet
   - Enemy
   - 
   - 

@@ -28063,12 +28063,12 @@ PrefabInstance:
     - target: {fileID: 90467286787917305, guid: fed267de7795c0a40a2999ac85695a2b,
         type: 3}
       propertyPath: numberShots
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 90467286787917305, guid: fed267de7795c0a40a2999ac85695a2b,
         type: 3}
       propertyPath: diagonalShot
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1647407748358590542, guid: fed267de7795c0a40a2999ac85695a2b,
         type: 3}
