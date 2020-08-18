@@ -10,6 +10,4 @@ public class LivingObjectInfo : BaseMonoBehaviour
     public MovingBase movement;
     public DamageSourceBase dmgSource;
     public Status status;
-
-
 }

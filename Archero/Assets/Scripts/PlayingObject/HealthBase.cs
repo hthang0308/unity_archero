@@ -12,13 +12,16 @@ public class HealthBase : BaseMonoBehaviour
 
     protected float shield;
     [HideInInspector] public bool isDead = false;
-
-
-    protected void OnEnable()
+    protected virtual void OnEnable()
     {
         hP = maxHP;
-        healthBarUI.SetHealthUI(hP/maxHP);
+        healthBarUI.SetHealthUI(hP / maxHP);
     }
+    //protected void Awake()
+    //{
+    //    hP = maxHP;
+    //    healthBarUI.SetHealthUI(hP/maxHP);
+    //}
 
     public void TakeDmage(float dmg)
     {
@@ -28,7 +31,7 @@ public class HealthBase : BaseMonoBehaviour
             if (shield >= dmg)
                 shield -= dmg;
             else
-            {
+            { 
                 //shield is broken
                 dmg -= shield;
                 shield = 0;

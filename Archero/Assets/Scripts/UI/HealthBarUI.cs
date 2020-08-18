@@ -25,7 +25,7 @@ public class HealthBarUI : BaseMonoBehaviour
     public void SetHealthUI(float healthPercent)
     {
         // Set the slider's value appropriately.
-        sliderUI.value = healthPercent;
+        sliderUI.value = healthPercent*100;
         // Interpolate the color of the bar between the choosen colours based on the current percentage of the starting health.
         //NOTE
         fillSliderUI.color = Color.Lerp(m_ZeroHealthColor, m_FullHealthColor, healthPercent);

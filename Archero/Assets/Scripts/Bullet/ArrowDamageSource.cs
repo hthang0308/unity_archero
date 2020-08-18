@@ -61,7 +61,9 @@ public class ArrowDamageSource : DamageSourceBase
         {
             //Fix Do Damage to enemy later
             LivingObjectInfo target = hit.collider.GetComponent<LivingObjectInfo>();
-            if (target != null)
+            //if (target != null)
+            //    DoDamage(target);
+            if ((target != null) && (target.gameObject.layer == 16))
                 DoDamage(target);
 
             if ((hit.collider.gameObject.layer | enemyLayer) != 0 && penetrate)
