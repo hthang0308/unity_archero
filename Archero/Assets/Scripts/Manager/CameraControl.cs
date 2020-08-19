@@ -5,6 +5,8 @@ using UnityEngine;
 public class CameraControl : BaseMonoBehaviour
 {
     [SerializeField] Transform player;
+    [SerializeField] Vector2 clampOffset = new Vector2(-2,2);
+    Vector2 clamp;
 
     public override void Awake()
     {
@@ -19,6 +21,14 @@ public class CameraControl : BaseMonoBehaviour
     {
         Vector3 tmpPos = transform.position;
         tmpPos.z = player.position.z;
+        tmpPos.z = Mathf.Clamp(tmpPos.z, clamp.x, clamp.y);
         transform.position = tmpPos;
+    }
+
+    public void SetClamp(float startingPoint, float endingPoint)
+    {
+        clamp.x = startingPoint + clampOffset.x;
+        clamp.y = endingPoint + clampOffset.y;
+        
     }
 }

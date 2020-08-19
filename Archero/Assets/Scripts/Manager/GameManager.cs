@@ -18,11 +18,13 @@ public class GameManager : MonoBehaviour
 
     public PlayerInfo player;
     public List<LivingObjectInfo> enemies;
+    public CameraControl cameraControl;
 
     public void Awake()
     {
         enemies = curMap.enemies;
         player.transform.SetPositionAndRotation(curMap.startingPos.position, Quaternion.identity);
+        cameraControl.SetClamp(curMap.startingPos.position.z, curMap.endingPos.transform.position.z);
     }
 
     public void RemoveEnemy(LivingObjectInfo enemy)
