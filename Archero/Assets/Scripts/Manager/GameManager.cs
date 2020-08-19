@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] protected MapInfo curMap;
 
     public PlayerInfo player;
-    public List<LivingObjectInfo> enemies;
+    [HideInInspector] public List<LivingObjectInfo> enemies;
     public CameraControl cameraControl;
 
     public void Awake()

@@ -59,10 +59,11 @@ public class ArrowDamageSource : DamageSourceBase
 
 
 
-        if (Physics.Raycast(transform.position, direction, out hit, deltaMovement, ~layerToIgnore))
+        if (Physics.Raycast(transform.position, direction, out hit, deltaMovement, ~layerToIgnore, QueryTriggerInteraction.Ignore))
         {
             if ((hit.collider.gameObject.layer & enemyLayer) != 0)
             {
+                Debug.Log(true);
                 LivingObjectInfo target = hit.collider.GetComponent<LivingObjectInfo>();
                 DoDamage(target);
                 if (penetrate)
