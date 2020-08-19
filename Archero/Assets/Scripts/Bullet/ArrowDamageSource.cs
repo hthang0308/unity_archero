@@ -8,14 +8,22 @@ public class ArrowDamageSource : DamageSourceBase
     protected int enemyLayer;
     [SerializeField] protected TrailRenderer trail;
 
-    protected float distance = 20f;
+    [HideInInspector] public float distance = 20f;
     protected float countDownDistance;
 
-    protected float speed = 0.8f;
-    protected Vector3 direction = new Vector3(1, 0, 1);
+    [HideInInspector] public float speed = 0.8f;
 
-    protected bool penetrate = false;
-    protected bool bouncingWall = false;
+    protected Vector3 direction = new Vector3(1, 0, 1);
+    public Vector3 Direction
+    {
+        set
+        {
+            direction = value.normalized;
+        }
+    }
+
+    [HideInInspector] public bool penetrate = false;
+    [HideInInspector] public bool bouncingWall = false;
     protected bool disable = false;
     protected RaycastHit hit;
 
@@ -26,13 +34,7 @@ public class ArrowDamageSource : DamageSourceBase
         enemyLayer = LayerMask.NameToLayer("Enemy");
     }
 
-    public Vector3 Direction
-    {
-        set
-        {
-            direction = value.normalized;
-        }
-    }
+    
 
     public void OnEnable()
     {

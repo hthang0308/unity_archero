@@ -10,7 +10,9 @@ public class ObjectPooling<T> where T:Component
     public List<T> poolActive = new List<T>();
     public Queue<T> poolDeactive = new Queue<T>();
 
-   
+    public List<T> poolAll = new List<T>();
+
+
 
     public void UpdateFixed()
     {
@@ -35,6 +37,7 @@ public class ObjectPooling<T> where T:Component
     public void AddToPool(T prefab)
     {
         T obj = GameObject.Instantiate(prefab) as T;
+        poolAll.Add(obj);
         obj.gameObject.SetActive(false);
         poolDeactive.Enqueue(obj);
     }
@@ -48,5 +51,7 @@ public class ObjectPooling<T> where T:Component
         poolActive.Add(obj);
         return obj;
     }
+
+
 
 }

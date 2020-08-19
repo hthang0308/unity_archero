@@ -14,23 +14,71 @@ public class PlayerAttack : AttackBase<ArrowDamageSource>
     [SerializeField] protected float delayNextShot = 0.8f;
     protected float countDownDelayNextShot;
 
-    [SerializeField] protected int numberShots = 1; //remove serialize field after debug
+    [SerializeField] public int numberShots = 1; 
     protected int countDownNumberShots;
 
     //Front
-    [SerializeField] protected int frontShot = 1;
+    [SerializeField] public int frontShot = 1;
     [SerializeField] protected float frontShotDeltaPos = 5f;
 
     //Diagonal
-    [SerializeField] protected int diagonalShot = 0;
+    [SerializeField] public int diagonalShot = 0;
     [SerializeField] protected float diagonalShotAngle = 10f;
 
     //Arrow Set Up
-    [Header("Arrow Set Up")] [Space(20)]
-    [SerializeField] protected float distance = 20f;
-    [SerializeField] protected float speed = 0.8f;
-    [SerializeField] protected bool penetrate = false;
-    [SerializeField] protected bool bouncingWall = true;
+    [Header("Arrow Set Up")]
+    [Space(20)]
+    [SerializeField] public float distance = 20f;
+    [SerializeField] public float speed = 0.8f;
+    [SerializeField] public bool penetrate = false;
+    [SerializeField] public bool bouncingWall = true;
+
+    //public int FrontShot { set => frontShot = value; }
+    //public int DiagonalShot { set => diagonalShot = value; }
+
+    //public float Distance
+    //{
+    //    set
+    //    {
+    //        distance = value;
+    //        List<ArrowDamageSource> arrows = dmgPool.poolAll;
+    //        for (int i = 0; i < arrows.Count; i++)
+    //            arrows[i].distance = distance;
+    //    }
+    //}
+
+    //public float Speed
+    //{
+    //    set
+    //    {
+    //        speed = value;
+    //        List<ArrowDamageSource> arrows = dmgPool.poolAll;
+    //        for (int i = 0; i < arrows.Count; i++)
+    //            arrows[i].speed = speed;
+    //    }
+    //}
+
+    //public bool Penetrate
+    //{
+    //    set
+    //    {
+    //        penetrate = value;
+    //        List<ArrowDamageSource> arrows = dmgPool.poolAll;
+    //        for (int i = 0; i < arrows.Count; i++)
+    //            arrows[i].penetrate = penetrate;
+    //    }
+    //}
+
+    //public bool BouncingWall
+    //{
+    //    set
+    //    {
+    //        bouncingWall = value;
+    //        List<ArrowDamageSource> arrows = dmgPool.poolAll;
+    //        for (int i = 0; i < arrows.Count; i++)
+    //            arrows[i].bouncingWall = bouncingWall;
+    //    }
+    //}
 
     public override void OnEnable()
     {
@@ -82,7 +130,7 @@ public class PlayerAttack : AttackBase<ArrowDamageSource>
         }
 
         FrontShoot();
-        DiagonalShot();
+        DiagonalShoot();
 
 
         countDownNumberShots--;
@@ -101,7 +149,7 @@ public class PlayerAttack : AttackBase<ArrowDamageSource>
         }
     }
 
-    protected void DiagonalShot()
+    protected void DiagonalShoot()
     {
         if (diagonalShot == 0)
             return;

@@ -24,6 +24,8 @@ public class AttackControl : BaseMonoBehaviour
         }
     }
 
+    public List<AttackBase> Attacks { get => attacks;}
+
     public override void UpdateNormal()
     {
         //Switch
