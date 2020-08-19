@@ -14,10 +14,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public PlayerInfo player;
+    [SerializeField] protected MapInfo curMap;
 
-    void Awake()
+    public PlayerInfo player;
+    public List<LivingObjectInfo> enemies;
+
+    public void Awake()
     {
+        enemies = curMap.enemies;
+        player.transform.SetPositionAndRotation(curMap.startingPos.position, Quaternion.identity);
+    }
+
+    public void RemoveEnemy(LivingObjectInfo enemy)
+    {
+        enemies.Remove(enemy);
+        if (enemies.Count == 0)
+            curMap.endingPos.SetActive(true);
     }
 
     // Start is called before the first frame update

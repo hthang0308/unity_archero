@@ -6,6 +6,8 @@ public class EnemyHealth : HealthBase
 {
     private ExperiencePoint playerExp;
     private float expOnDeath=0f;
+    [SerializeField] protected LivingObjectInfo enemyInfo;
+
     protected override void OnEnable()
     {
         base.OnEnable();
@@ -20,6 +22,7 @@ public class EnemyHealth : HealthBase
     protected override void OnDeath()
     {
         playerExp.exp += expOnDeath;
+        GameManager.instance.RemoveEnemy(enemyInfo);
         //Debug.Log("Exp Giving: " + expOnDeath);
         //Debug.Log("Player Exp: " + playerExp.exp);
         base.OnDeath();

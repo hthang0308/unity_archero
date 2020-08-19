@@ -19,7 +19,6 @@ public class DamageSourceBase : BaseMonoBehaviour
 
     protected virtual void DoDamage(LivingObjectInfo targetInfo)
     {
-        Debug.Log(targetInfo);
         targetInfo.health.TakeDmage(atkPoint);
         Status targetStatus = targetInfo.status;
         for (int i = 0; i < effects.Count; i++)

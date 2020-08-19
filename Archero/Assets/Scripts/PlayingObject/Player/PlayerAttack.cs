@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerAttack : AttackBase<ArrowDamageSource>
 {
+    public Transform enemyLookAt;
     [SerializeField] protected PlayerAnimator playerAnimator;
     protected int hashState;
 
@@ -101,6 +102,12 @@ public class PlayerAttack : AttackBase<ArrowDamageSource>
 
     public override void UpdateNormal()
     {
+        //Look at rotation
+        Vector3 rotationLookAt = enemyLookAt.position - transform.position;
+        rotationLookAt.y = 0;
+        transform.rotation = Quaternion.LookRotation(rotationLookAt, Vector3.up);
+
+
         //Attacking
         if (isAttack)
             Attacking();

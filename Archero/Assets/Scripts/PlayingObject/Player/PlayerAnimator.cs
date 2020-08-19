@@ -13,4 +13,16 @@ public class PlayerAnimator : AnimatorBase
             animator.SetBool(AnimatorParameters.var_multiShootID, isMultiShot);
         }
     }
+
+    protected bool hasEnemy;
+    public bool HasEnemy
+    {
+        set
+        {
+            hasEnemy = value;
+            animator.SetBool(AnimatorParameters.var_hasEnemyID, hasEnemy);
+        }
+    }
+
+
 }

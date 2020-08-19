@@ -10,7 +10,9 @@ public class MovingBase : BaseMonoBehaviour
     protected float speed;
     [HideInInspector] protected bool isMoving = false;
     protected Vector3 direction = new Vector3();
-    public bool IsMoving { get => isMoving;
+    public bool IsMoving
+    {
+        get => isMoving;
         set
         {
             if (isMoving == value)

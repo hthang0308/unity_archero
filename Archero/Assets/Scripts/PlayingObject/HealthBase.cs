@@ -12,6 +12,7 @@ public class HealthBase : BaseMonoBehaviour
 
     protected float shield;
     [HideInInspector] public bool isDead = false;
+
     protected virtual void OnEnable()
     {
         hP = maxHP;
@@ -42,7 +43,6 @@ public class HealthBase : BaseMonoBehaviour
         healthBarUI.SetHealthUI(hP / maxHP);
         if ((hP <= 0)&&(!isDead))
             OnDeath();
-        Debug.Log(hP);
     }
 
     protected virtual void OnDeath()
