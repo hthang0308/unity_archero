@@ -12,16 +12,28 @@ public class MapManager : MonoBehaviour
             instance = this;
         }
     }
+    
+    [SerializeField] protected MapInfo mapInit;
+    [HideInInspector] public MapInfo curMap;
+    public CameraControl cameraControl;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Awake()
     {
-        
+        ChangeMap();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ChangeMap()
     {
-        
+        if (curMap != null)
+            Destroy(curMap.gameObject);
+        if (mapInit == null)
+            return;
+        curMap = Instantiate(mapInit);
+        GameManager.instance.enemies = curMap.enemies;
+        GameManager.instance.player.transform.SetPositionAndRotation(curMap.startingPos.position, Quaternion.identity);
+        cameraControl.SetClamp(curMap.startingPos.position.z, curMap.endingPos.transform.position.z);
+        mapInit = curMap.nextMap;
     }
+
+    
 }

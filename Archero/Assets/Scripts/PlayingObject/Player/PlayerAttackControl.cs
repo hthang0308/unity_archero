@@ -21,19 +21,16 @@ public class PlayerAttackControl : AttackControl
             }
             else
             {
-                SwitchAttack = 0;
-                if (lookAtEnemy == null || !lookAtEnemy.gameObject.activeInHierarchy)
+                //SwitchAttack = 0;
+                if (lookAtEnemy == null || !lookAtEnemy.gameObject.activeInHierarchy || SwitchAttack == -1)
                 {
-                    //if (lookAtEnemy!=null)
-                    //    Debug.Log(!lookAtEnemy.gameObject.activeInHierarchy);
+                    SwitchAttack = 0;
                     Vector3 curPos = transform.position;
                     lookAtEnemy = enemies[0].transform;
                     float minDistance = (lookAtEnemy.position - curPos).magnitude;
-                    //Debug.Log(enemies[0].id);
 
-                    for (int i=1;i<enemies.Count;i++)
+                    for (int i = 1; i < enemies.Count; i++)
                     {
-                        //Debug.Log(enemies[i].id);
                         float tmpDistance = (enemies[i].transform.position - curPos).magnitude;
                         if (tmpDistance < minDistance)
                         {
@@ -44,6 +41,7 @@ public class PlayerAttackControl : AttackControl
                     PlayerAttack playerAttack = curAttack as PlayerAttack;
                     playerAttack.enemyLookAt = lookAtEnemy;
                 }
+                else SwitchAttack = 0;
             }
         }
         else SwitchAttack = -1;

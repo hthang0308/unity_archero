@@ -14,34 +14,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    [SerializeField] protected MapInfo mapInit;
-    protected MapInfo curMap;
+    
 
     public PlayerInfo player;
     [HideInInspector] public List<LivingObjectInfo> enemies;
-    public CameraControl cameraControl;
+    
 
     public void Awake()
     {
-        InitMap();
     }
 
-    private void InitMap()
-    {
-        if (mapInit == null)
-            return;
-        curMap = Instantiate(mapInit);
-        enemies = curMap.enemies;
-        player.transform.SetPositionAndRotation(curMap.startingPos.position, Quaternion.identity);
-        cameraControl.SetClamp(curMap.startingPos.position.z, curMap.endingPos.transform.position.z);
-        mapInit = curMap.nextMap;
-    }
+    
 
     public void RemoveEnemy(LivingObjectInfo enemy)
     {
         enemies.Remove(enemy);
         if (enemies.Count == 0)
-            mapInit.endingPos.SetActive(true);
+        {
+            MapManager.instance.curMap.endingPos.SetActive(true);
+            GoldCoinPool.instance.GetExperience();
+        }
     }
 
     // Start is called before the first frame update

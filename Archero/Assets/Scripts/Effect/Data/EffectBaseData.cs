@@ -15,4 +15,9 @@ public class EffectBaseData : ScriptableObject
     public EffectBase.Behavior Behavior { get => behavior; }
     public float DelayPerAffect { get => delayPerAffect; }
     public float Duration { get => duration; }
+
+    public virtual EffectBase CreateEffect()
+    {
+        return new EffectBase(this);
+    }
 }

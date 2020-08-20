@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[CreateAssetMenu(menuName = "Item Create Data")]
+[CreateAssetMenu(menuName = "Item Create Data/Base")]
 public class ItemCreateData : ScriptableObject
 {
     [SerializeField] private Sprite icon;
@@ -14,3 +14,5 @@ public class ItemCreateData : ScriptableObject
     public float Number { get => number; }
     public ItemBase.Type Type { get => type; }
 }
+
+

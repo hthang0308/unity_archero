@@ -45,6 +45,10 @@ public class ItemManager : MonoBehaviour
                     case ItemBase.Type.BOUNCING:
                         items.Add(new BouncingItem(icon));
                         break;
+                    case ItemBase.Type.DAMAGE_PER_SECOND:
+                        DamagePerSecondItemData damagePerSecondItemData = datas[i] as DamagePerSecondItemData;
+                        items.Add(new DamagePerSecondItem(icon, damagePerSecondItemData.DmgPerSecData));
+                        break;
                 }
 
             }
@@ -55,7 +59,7 @@ public class ItemManager : MonoBehaviour
 
     public ItemBase GetItem()
     {
-        return items[Random.Range(0, items.Count-1)];
+        return items[Random.Range(0, items.Count)];
     }
 
     public void Remove(ItemBase item)

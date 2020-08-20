@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerAttack : AttackBase<ArrowDamageSource>
 {
-    public Transform enemyLookAt;
+    [HideInInspector] public Transform enemyLookAt;
     [SerializeField] protected PlayerAnimator playerAnimator;
     protected int hashState;
 
@@ -33,6 +33,7 @@ public class PlayerAttack : AttackBase<ArrowDamageSource>
     [SerializeField] public float speed = 0.8f;
     [SerializeField] public bool penetrate = false;
     [SerializeField] public bool bouncingWall = true;
+    [HideInInspector] public List<EffectBaseData> effectDatas = new List<EffectBaseData>();
 
     //public int FrontShot { set => frontShot = value; }
     //public int DiagonalShot { set => diagonalShot = value; }
@@ -167,13 +168,13 @@ public class PlayerAttack : AttackBase<ArrowDamageSource>
             arrow.transform.SetPositionAndRotation(fireTransform.position, 
                 fireTransform.rotation);
             arrow.SetUpArrow(Quaternion.AngleAxis(diagonalShotAngle * i, Vector3.up) * rotation,
-                distance, speed, penetrate, bouncingWall);
+                distance, speed, penetrate, bouncingWall, effectDatas);
 
             arrow = dmgPool.GetFromPool(dmgPrefab);
             arrow.transform.SetPositionAndRotation(fireTransform.position, 
                 fireTransform.rotation);
             arrow.SetUpArrow(Quaternion.AngleAxis(-diagonalShotAngle * i, Vector3.up) * rotation,
-                distance, speed, penetrate, bouncingWall);
+                distance, speed, penetrate, bouncingWall, effectDatas);
         }
     }
 
@@ -187,7 +188,7 @@ public class PlayerAttack : AttackBase<ArrowDamageSource>
         {
             ArrowDamageSource arrow = dmgPool.GetFromPool(dmgPrefab);
             arrow.transform.SetPositionAndRotation(tmpPos, fireTransform.rotation);
-            arrow.SetUpArrow(fireTransform.forward, distance, speed, penetrate, bouncingWall);
+            arrow.SetUpArrow(fireTransform.forward, distance, speed, penetrate, bouncingWall, effectDatas);
             tmpPos += xDirection * frontShotDeltaPos;
         }
     }

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DiagonalShot
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 37a7ff367e31ea94cadd4150832de29e, type: 3}
-  number: 2
+  number: 1
   type: 1

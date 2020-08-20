@@ -6,7 +6,8 @@ public class DamageSourceBase : BaseMonoBehaviour
 {
     protected int layerToIgnore = 0;
     public float atkPoint = 10f;
-    public List<EffectBase> effects = new List<EffectBase>();
+    [HideInInspector] public List<EffectBaseData> effectDatas = new List<EffectBaseData>();
+
 
     public override void Awake()
     {
@@ -21,13 +22,13 @@ public class DamageSourceBase : BaseMonoBehaviour
     {
         targetInfo.health.TakeDmage(atkPoint);
         Status targetStatus = targetInfo.status;
-        for (int i = 0; i < effects.Count; i++)
-            targetStatus.AddEffect(effects[i]);
+        for (int i = 0; i < effectDatas.Count; i++)
+            targetStatus.AddEffect(effectDatas[i].CreateEffect());
     }
 
-    public void AddEffect(EffectBase effect)
-    {
-        //Add Effect to the dmgSource, not the Object
-        effects.Add(effect);
-    }
+    //public void AddEffect(EffectBaseData effect)
+    //{
+    //    //Add Effect to the dmgSource, not the Object
+    //    effectDatas.Add(effect);
+    //}
 }

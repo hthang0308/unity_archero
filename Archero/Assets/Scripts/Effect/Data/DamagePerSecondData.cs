@@ -10,4 +10,9 @@ public class DamagePerSecondData : EffectBaseData
     [SerializeField] protected float damage;
 
     public float Damage { get => damage; }
+
+    public override EffectBase CreateEffect()
+    {
+        return new DamagePerSecond(this);
+    }
 }

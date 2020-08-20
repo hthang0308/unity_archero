@@ -43,10 +43,16 @@ public class VariableJoystick : Joystick
 
     public override void OnPointerUp(PointerEventData eventData)
     {
-        if(joystickType != JoystickType.Fixed)
-            background.gameObject.SetActive(false);
+        
 
         base.OnPointerUp(eventData);
+    }
+
+    protected override void ReleaseInput()
+    {
+        if (joystickType != JoystickType.Fixed)
+            background.gameObject.SetActive(false);
+        base.ReleaseInput();
     }
 
     protected override void HandleInput(float magnitude, Vector2 normalised, Vector2 radius, Camera cam)

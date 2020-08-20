@@ -24,6 +24,7 @@ public class ArrowDamageSource : DamageSourceBase
 
     [HideInInspector] public bool penetrate = false;
     [HideInInspector] public bool bouncingWall = false;
+
     protected bool disable = false;
     protected RaycastHit hit;
 
@@ -63,7 +64,6 @@ public class ArrowDamageSource : DamageSourceBase
         {
             if ((hit.collider.gameObject.layer & enemyLayer) != 0)
             {
-                Debug.Log(true);
                 LivingObjectInfo target = hit.collider.GetComponent<LivingObjectInfo>();
                 DoDamage(target);
                 if (penetrate)
@@ -93,7 +93,8 @@ public class ArrowDamageSource : DamageSourceBase
 
     }
 
-    public virtual void SetUpArrow(Vector3 inDirection, float inDistance, float inSpeed, bool inPenetrate, bool inBouncing)
+    public virtual void SetUpArrow(Vector3 inDirection, float inDistance, float inSpeed, bool inPenetrate, bool inBouncing, 
+        List<EffectBaseData> inEffectBaseDatas)
     {
         distance = inDistance;
         speed = inSpeed;
@@ -101,6 +102,7 @@ public class ArrowDamageSource : DamageSourceBase
         Direction = inDirection;
         countDownDistance = distance;
         bouncingWall = inBouncing;
+        effectDatas = inEffectBaseDatas;
 
     }
 

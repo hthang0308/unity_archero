@@ -25,8 +25,14 @@ public class DynamicJoystick : Joystick
 
     public override void OnPointerUp(PointerEventData eventData)
     {
-        background.gameObject.SetActive(false);
+        
         base.OnPointerUp(eventData);
+    }
+
+    protected override void ReleaseInput()
+    {
+        background.gameObject.SetActive(false);
+        base.ReleaseInput();
     }
 
     protected override void HandleInput(float magnitude, Vector2 normalised, Vector2 radius, Camera cam)

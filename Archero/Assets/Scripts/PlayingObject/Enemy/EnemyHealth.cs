@@ -5,14 +5,13 @@ using UnityEngine;
 public class EnemyHealth : HealthBase
 {
     private ExperiencePoint playerExp;
-    private float expOnDeath=0f;
+    [SerializeField] protected int expOnDeath = 3;
     [SerializeField] protected LivingObjectInfo enemyInfo;
 
     protected override void OnEnable()
     {
         base.OnEnable();
         playerExp = GameManager.instance.player.experience;
-        expOnDeath = 15f;
     }
     //private void Update()
     //{
@@ -21,10 +20,8 @@ public class EnemyHealth : HealthBase
     //}
     protected override void OnDeath()
     {
-        playerExp.exp += expOnDeath;
+        GoldCoinPool.instance.UseCoin(transform.position, expOnDeath);
         GameManager.instance.RemoveEnemy(enemyInfo);
-        //Debug.Log("Exp Giving: " + expOnDeath);
-        //Debug.Log("Player Exp: " + playerExp.exp);
         base.OnDeath();
     }
 }

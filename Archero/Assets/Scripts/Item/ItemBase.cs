@@ -13,7 +13,8 @@ public abstract class ItemBase : IEquatable<ItemBase>
         DIAGONAL_SHOT,
         MULTI_SHOT,
         PIERCING_SHOT,
-        BOUNCING
+        BOUNCING,
+        DAMAGE_PER_SECOND
     }
 
     protected Type type;
@@ -31,7 +32,7 @@ public abstract class ItemBase : IEquatable<ItemBase>
 
     public bool Equals(ItemBase other)
     {
-        if (type == other.type)
+        if (type == other.type && icon == other.icon)
             return true;
         return false;
     }

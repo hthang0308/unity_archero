@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InputController : MonoBehaviour
 {
-    public FixedJoystick movingInput;
+    public DynamicJoystick movingInput;
     [SerializeField] protected PlayerInfo player;
     PlayerMoving moving;
 
