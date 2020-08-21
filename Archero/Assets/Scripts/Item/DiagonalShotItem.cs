@@ -11,6 +11,7 @@ public class DiagonalShotItem : ItemBase
 
     public override void DoAffect()
     {
+        PlayerStyleAttack playerAttack = GameManager.instance.player.attackBase.CurAttackStyle as PlayerStyleAttack;
         playerAttack.diagonalShot++;
     }
 

@@ -11,6 +11,7 @@ public class MultiShotItem : ItemBase
 
     public override void DoAffect()
     {
+        PlayerStyleAttack playerAttack = GameManager.instance.player.attackBase.CurAttackStyle as PlayerStyleAttack;
         playerAttack.numberShots++;
     }
 

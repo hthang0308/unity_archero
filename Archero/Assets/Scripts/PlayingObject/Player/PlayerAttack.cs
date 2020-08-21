@@ -20,17 +20,16 @@ public class PlayerAttack : AttackBase
             }
             else
             {
-                //SwitchAttack = 0;
                 if (lookAtEnemy == null || !lookAtEnemy.gameObject.activeInHierarchy || Attacking == false)
                 {
                     Attacking = true;
                     Vector3 curPos = transform.position;
                     lookAtEnemy = enemies[0].transform;
-                    float minDistance = (lookAtEnemy.position - curPos).magnitude;
+                    float minDistance = (lookAtEnemy.position - curPos).sqrMagnitude;
 
                     for (int i = 1; i < enemies.Count; i++)
                     {
-                        float tmpDistance = (enemies[i].transform.position - curPos).magnitude;
+                        float tmpDistance = (enemies[i].transform.position - curPos).sqrMagnitude;
                         if (tmpDistance < minDistance)
                         {
                             minDistance = tmpDistance;

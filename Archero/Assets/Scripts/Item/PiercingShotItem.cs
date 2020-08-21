@@ -11,6 +11,7 @@ public class PiercingShotItem : ItemBase
 
     public override void DoAffect()
     {
+        PlayerStyleAttack playerAttack = GameManager.instance.player.attackBase.CurAttackStyle as PlayerStyleAttack;
         playerAttack.penetrate = true;
     }
 
