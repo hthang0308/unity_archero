@@ -19,10 +19,11 @@ public class LivingObjectInfo : BaseMonoBehaviour, IEquatable<LivingObjectInfo>
     }
 
     public HealthBase health;
-    public AttackControl attackControl;
+    public AttackBase attackBase;
     public MovingBase movement;
     public DamageSourceBase dmgSource;
     public Status status;
+    public State state;
 
     public bool Equals(LivingObjectInfo other)
     {

@@ -25,7 +25,8 @@ public class EnemyShellMoving : MovingBase
         {
             countDelayMove = 0;
             _navMeshAgent.speed = 0;
-            IsMoving = false;
+            //IsMoving = false;
+            state.IsMoving = false;
             inDurationMoving = false;
         }
         else if ((countDelayMove>delayMove)&&(!inDurationMoving))
@@ -33,7 +34,8 @@ public class EnemyShellMoving : MovingBase
             direction = playerTransform.position - transform.position;
             _navMeshAgent.SetDestination(playerTransform.position);
             _navMeshAgent.speed = maxSpeed;
-            IsMoving = true;
+            //IsMoving = true;
+            state.IsMoving = true;
             inDurationMoving = true;
         }
     }

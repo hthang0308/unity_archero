@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimator : AnimatorBase
+public class PlayerState : State
 {
     protected bool isMultiShot;
     public bool IsMultiShot

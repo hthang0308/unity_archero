@@ -24,16 +24,17 @@ public class MapManager : MonoBehaviour
 
     public void ChangeMap()
     {
-        if (curMap != null)
-            Destroy(curMap.gameObject);
         if (mapInit == null)
             return;
+        if (curMap != null)
+            Destroy(curMap.gameObject);
         curMap = Instantiate(mapInit);
         GameManager.instance.enemies = curMap.enemies;
         GameManager.instance.player.transform.SetPositionAndRotation(curMap.startingPos.position, Quaternion.identity);
         cameraControl.SetClamp(curMap.startingPos.position.z, curMap.endingPos.transform.position.z);
         mapInit = curMap.nextMap;
+
     }
 
-    
+
 }

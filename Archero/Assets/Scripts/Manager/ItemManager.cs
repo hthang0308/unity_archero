@@ -26,6 +26,7 @@ public class ItemManager : MonoBehaviour
         {
             ItemBase.Type type = datas[i].Type;
             Sprite icon = datas[i].Icon;
+            //Add in the scriptable object
             for (int j = 0; j < datas[i].Number; j++)
             {
                 switch (type)

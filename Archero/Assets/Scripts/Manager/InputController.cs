@@ -6,16 +6,16 @@ public class InputController : MonoBehaviour
 {
     public DynamicJoystick movingInput;
     [SerializeField] protected PlayerInfo player;
-    PlayerMoving moving;
+    MovingBase moving;
 
     void Start()
     {
-        moving = player.playerMoving;
+        moving = player.movement;
     }
 
     // Update is called once per frame
     void Update()
     {
-        moving.GetInput(movingInput.Horizontal, movingInput.Vertical);
+        moving.direction = new Vector3(movingInput.Horizontal, 0f, movingInput.Vertical);
     }
 }

@@ -19,12 +19,13 @@ public abstract class ItemBase : IEquatable<ItemBase>
 
     protected Type type;
     public Sprite icon;
-    protected static PlayerAttack playerAttack;
+    //khong tuong minh
+    protected static PlayerStyleAttack playerAttack;
 
     public ItemBase(Sprite inIcon)
     {
         if (playerAttack == null)
-            playerAttack = GameManager.instance.player.attackControl.Attacks[0] as PlayerAttack;
+            playerAttack = GameManager.instance.player.attackBase.CurAttackStyle as PlayerStyleAttack;
         icon = inIcon;
     }
 

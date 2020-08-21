@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAnimator : AnimatorBase
+public class EnemyState : State
 {
 
 }

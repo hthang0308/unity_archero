@@ -4,57 +4,35 @@ using UnityEngine;
 
 public class AttackBase : BaseMonoBehaviour
 {
-    protected bool isAttack = false;
-    [SerializeField] protected float delayNextAttack = 3.0f;
-    [SerializeField] protected Transform fireTransform;
-    protected float countDownDelayNextAttack;
+    [SerializeField] protected AttackStyleBase curAttackStyle;
+    private bool attacking = false;
 
-    public virtual void OnEnable()
+    public bool Attacking
     {
-        //set countDown
-        countDownDelayNextAttack = delayNextAttack;
-        isAttack = true;
+        get => attacking;
+        set
+        {
+            if (attacking == value)
+                return;
+            curAttackStyle.enabled = value;
+            attacking = value;
+        }
+    }
 
+    public AttackStyleBase CurAttackStyle
+    {
+        get => curAttackStyle;
+        set
+        {
+            Attacking = false;
+            curAttackStyle = value;
+        }
     }
 
     public override void UpdateNormal()
     {
-        //Attacking
-        if (isAttack)
-            Attacking();
-        else
-        {
-            countDownDelayNextAttack -= Time.deltaTime;
-            if (countDownDelayNextAttack <= 0f)
-            {
-                isAttack = true;
-                countDownDelayNextAttack = delayNextAttack;
-            }
-        }
+        //Switch
 
+        //curAtk.attack
     }
-
-    protected virtual void Attacking()
-    {
-        //when isAttack turn on --> attacking --> finished??? --> turn off
-    }
-
-}
-
-public class AttackBase<T> : AttackBase where T:DamageSourceBase
-{
-    protected ObjectPooling<T> dmgPool = new ObjectPooling<T>();
-    [SerializeField] protected T dmgPrefab;
-
-    public override void Awake()
-    {
-        base.Awake();
-        dmgPool.GrowPool(dmgPrefab, 5);
-    }
-
-    public override void UpdateFixed()
-    {
-        dmgPool.UpdateFixed();
-    }
-
 }

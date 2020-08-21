@@ -2707,9 +2707,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21d5ccb0faafc91438832eaf3e0a860f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  state: {fileID: 0}
   rigidbody: {fileID: 1462850407}
   maxSpeed: 3
+  direction: {x: 0, y: 0, z: 0}
   _navMeshAgent: {fileID: 1462850409}
 --- !u!195 &1462850409
 NavMeshAgent:
@@ -3578,6 +3579,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba0d0e7a039f526499c356a3c5cd6d3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1654001612 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 90467286787917306, guid: fed267de7795c0a40a2999ac85695a2b,
+    type: 3}
+  m_PrefabInstance: {fileID: 90467288020132660}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a7a8fde73d50840be4523f3852091f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1654001613 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 90467286787917305, guid: fed267de7795c0a40a2999ac85695a2b,
+    type: 3}
+  m_PrefabInstance: {fileID: 90467288020132660}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7a7dfb41d86f174a8e2a909757a9632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1750174687
 GameObject:
   m_ObjectHideFlags: 0
@@ -4021,6 +4046,46 @@ PrefabInstance:
     - target: {fileID: 90467286787917306, guid: fed267de7795c0a40a2999ac85695a2b,
         type: 3}
       propertyPath: playerAnimator
+      value: 
+      objectReference: {fileID: 44137612}
+    - target: {fileID: 90467286787917306, guid: fed267de7795c0a40a2999ac85695a2b,
+        type: 3}
+      propertyPath: State
+      value: 
+      objectReference: {fileID: 44137612}
+    - target: {fileID: 90467286787917306, guid: fed267de7795c0a40a2999ac85695a2b,
+        type: 3}
+      propertyPath: playerState
+      value: 
+      objectReference: {fileID: 44137612}
+    - target: {fileID: 90467286787917306, guid: fed267de7795c0a40a2999ac85695a2b,
+        type: 3}
+      propertyPath: curAttack
+      value: 
+      objectReference: {fileID: 1654001613}
+    - target: {fileID: 90467286787917306, guid: fed267de7795c0a40a2999ac85695a2b,
+        type: 3}
+      propertyPath: curAttackStyle
+      value: 
+      objectReference: {fileID: 1654001613}
+    - target: {fileID: 90467286787917308, guid: fed267de7795c0a40a2999ac85695a2b,
+        type: 3}
+      propertyPath: state
+      value: 
+      objectReference: {fileID: 44137612}
+    - target: {fileID: 90467286787917308, guid: fed267de7795c0a40a2999ac85695a2b,
+        type: 3}
+      propertyPath: attack
+      value: 
+      objectReference: {fileID: 1654001612}
+    - target: {fileID: 90467286787917308, guid: fed267de7795c0a40a2999ac85695a2b,
+        type: 3}
+      propertyPath: attackBase
+      value: 
+      objectReference: {fileID: 1654001612}
+    - target: {fileID: 90467286787917310, guid: fed267de7795c0a40a2999ac85695a2b,
+        type: 3}
+      propertyPath: state
       value: 
       objectReference: {fileID: 44137612}
     - target: {fileID: 90467288013979825, guid: fed267de7795c0a40a2999ac85695a2b,

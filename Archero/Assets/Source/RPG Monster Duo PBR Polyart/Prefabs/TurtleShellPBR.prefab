@@ -772,7 +772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   atkPoint: 10
-  effects: []
+  effectDatas: []
 --- !u!1 &1424131905083786
 GameObject:
   m_ObjectHideFlags: 0
@@ -1301,7 +1301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21d5ccb0faafc91438832eaf3e0a860f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1049519420}
+  state: {fileID: 1049519420}
   rigidbody: {fileID: 1049519419}
   maxSpeed: 5
   _navMeshAgent: {fileID: 1049519422}
@@ -1342,6 +1342,7 @@ MonoBehaviour:
   healthBarUI: {fileID: 398151831}
   maxHP: 200
   isDead: 0
+  expOnDeath: 3
   enemyInfo: {fileID: 1049519426}
 --- !u!114 &1049519425
 MonoBehaviour:
@@ -1375,6 +1376,7 @@ MonoBehaviour:
   movement: {fileID: 1049519421}
   dmgSource: {fileID: 0}
   status: {fileID: 1049519425}
+  state: {fileID: 1049519420}
 --- !u!1 &1822049695589022
 GameObject:
   m_ObjectHideFlags: 0

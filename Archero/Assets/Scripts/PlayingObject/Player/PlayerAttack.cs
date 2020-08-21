@@ -1,195 +1,48 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttack : AttackBase<ArrowDamageSource>
+public class PlayerAttack : AttackBase
 {
-    [HideInInspector] public Transform enemyLookAt;
-    [SerializeField] protected PlayerAnimator playerAnimator;
-    protected int hashState;
+    [SerializeField] protected PlayerState playerState;
 
-    [SerializeField] protected float startingDelay = 0.1f;
-    protected float countDownStartingDelay;
-
-    [SerializeField] protected float delayNextShot = 0.8f;
-    protected float countDownDelayNextShot;
-
-    [SerializeField] public int numberShots = 1; 
-    protected int countDownNumberShots;
-
-    //Front
-    [SerializeField] public int frontShot = 1;
-    [SerializeField] protected float frontShotDeltaPos = 5f;
-
-    //Diagonal
-    [SerializeField] public int diagonalShot = 0;
-    [SerializeField] protected float diagonalShotAngle = 10f;
-
-    //Arrow Set Up
-    [Header("Arrow Set Up")]
-    [Space(20)]
-    [SerializeField] public float distance = 20f;
-    [SerializeField] public float speed = 0.8f;
-    [SerializeField] public bool penetrate = false;
-    [SerializeField] public bool bouncingWall = true;
-    [HideInInspector] public List<EffectBaseData> effectDatas = new List<EffectBaseData>();
-
-    //public int FrontShot { set => frontShot = value; }
-    //public int DiagonalShot { set => diagonalShot = value; }
-
-    //public float Distance
-    //{
-    //    set
-    //    {
-    //        distance = value;
-    //        List<ArrowDamageSource> arrows = dmgPool.poolAll;
-    //        for (int i = 0; i < arrows.Count; i++)
-    //            arrows[i].distance = distance;
-    //    }
-    //}
-
-    //public float Speed
-    //{
-    //    set
-    //    {
-    //        speed = value;
-    //        List<ArrowDamageSource> arrows = dmgPool.poolAll;
-    //        for (int i = 0; i < arrows.Count; i++)
-    //            arrows[i].speed = speed;
-    //    }
-    //}
-
-    //public bool Penetrate
-    //{
-    //    set
-    //    {
-    //        penetrate = value;
-    //        List<ArrowDamageSource> arrows = dmgPool.poolAll;
-    //        for (int i = 0; i < arrows.Count; i++)
-    //            arrows[i].penetrate = penetrate;
-    //    }
-    //}
-
-    //public bool BouncingWall
-    //{
-    //    set
-    //    {
-    //        bouncingWall = value;
-    //        List<ArrowDamageSource> arrows = dmgPool.poolAll;
-    //        for (int i = 0; i < arrows.Count; i++)
-    //            arrows[i].bouncingWall = bouncingWall;
-    //    }
-    //}
-
-    public override void OnEnable()
-    {
-        base.OnEnable();
-        countDownStartingDelay = startingDelay;
-        countDownDelayNextShot = 0f;
-        countDownNumberShots = numberShots;
-        if (numberShots == 1)
-        {
-            hashState = AnimatorParameters.state_singleShotID;
-            playerAnimator.IsMultiShot = false;
-        }
-
-        else
-        {
-            hashState = AnimatorParameters.state_multiShotID;
-            playerAnimator.IsMultiShot = true;
-        }
-    }
+    protected Transform lookAtEnemy;
 
     public override void UpdateNormal()
     {
-        //Look at rotation
-        Vector3 rotationLookAt = enemyLookAt.position - transform.position;
-        rotationLookAt.y = 0;
-        transform.rotation = Quaternion.LookRotation(rotationLookAt, Vector3.up);
-
-
-        //Attacking
-        if (isAttack)
-            Attacking();
-        else
+        if (!playerState.IsMoving)
         {
-            countDownDelayNextAttack -= Time.deltaTime;
-            if (countDownDelayNextAttack <= 0f)
+            List<LivingObjectInfo> enemies = GameManager.instance.enemies;
+            if (enemies.Count == 0)
             {
-                isAttack = true;
-                countDownDelayNextAttack = delayNextAttack;
-                playerAnimator.animator.CrossFadeInFixedTime(hashState, 0);
+                playerState.HasEnemy = false;
+                Attacking = false;
+            }
+            else
+            {
+                //SwitchAttack = 0;
+                if (lookAtEnemy == null || !lookAtEnemy.gameObject.activeInHierarchy || Attacking == false)
+                {
+                    Attacking = true;
+                    Vector3 curPos = transform.position;
+                    lookAtEnemy = enemies[0].transform;
+                    float minDistance = (lookAtEnemy.position - curPos).magnitude;
+
+                    for (int i = 1; i < enemies.Count; i++)
+                    {
+                        float tmpDistance = (enemies[i].transform.position - curPos).magnitude;
+                        if (tmpDistance < minDistance)
+                        {
+                            minDistance = tmpDistance;
+                            lookAtEnemy = enemies[i].transform;
+                        }
+                    }
+                    PlayerStyleAttack playerAttack = curAttackStyle as PlayerStyleAttack;
+                    playerAttack.enemyLookAt = lookAtEnemy;
+                }
+                else Attacking = true;
             }
         }
-    }
-
-    protected override void Attacking()
-    {
-        if (countDownStartingDelay - Time.deltaTime > 0f)
-        {
-            countDownStartingDelay -= Time.deltaTime;
-            return;
-        }
-        if (countDownDelayNextShot - Time.deltaTime > 0f)
-        {
-            countDownDelayNextShot -= Time.deltaTime;
-            return;
-        }
-
-        FrontShoot();
-        DiagonalShoot();
-
-
-        countDownNumberShots--;
-        if (countDownNumberShots == 0)
-        {
-            isAttack = false;
-            countDownDelayNextShot = 0;
-            countDownNumberShots = numberShots;
-            countDownStartingDelay = startingDelay;
-        }
-        else
-        {
-            countDownDelayNextShot = delayNextShot;
-            
-
-        }
-    }
-
-    protected void DiagonalShoot()
-    {
-        if (diagonalShot == 0)
-            return;
-        Vector3 rotation = fireTransform.forward;
-        for (int i = 1; i<=diagonalShot; i++)
-        {
-            ArrowDamageSource arrow = dmgPool.GetFromPool(dmgPrefab);
-            arrow.transform.SetPositionAndRotation(fireTransform.position, 
-                fireTransform.rotation);
-            arrow.SetUpArrow(Quaternion.AngleAxis(diagonalShotAngle * i, Vector3.up) * rotation,
-                distance, speed, penetrate, bouncingWall, effectDatas);
-
-            arrow = dmgPool.GetFromPool(dmgPrefab);
-            arrow.transform.SetPositionAndRotation(fireTransform.position, 
-                fireTransform.rotation);
-            arrow.SetUpArrow(Quaternion.AngleAxis(-diagonalShotAngle * i, Vector3.up) * rotation,
-                distance, speed, penetrate, bouncingWall, effectDatas);
-        }
-    }
-
-    protected void FrontShoot()
-    {
-        Vector3 tmpPos = fireTransform.position;
-        Vector3 xDirection = fireTransform.right;
-
-        tmpPos -= (xDirection * frontShotDeltaPos * (frontShot - 1)) / 2f;
-        for (int i=0; i<frontShot; i++)
-        {
-            ArrowDamageSource arrow = dmgPool.GetFromPool(dmgPrefab);
-            arrow.transform.SetPositionAndRotation(tmpPos, fireTransform.rotation);
-            arrow.SetUpArrow(fireTransform.forward, distance, speed, penetrate, bouncingWall, effectDatas);
-            tmpPos += xDirection * frontShotDeltaPos;
-        }
+        else Attacking = false;
     }
 }
