@@ -81,6 +81,7 @@ public class PlayerStyleAttack : AttackStyleBase<ArrowDamageSource>
 
     protected override void Attacking()
     {
+        Debug.Log(atkPoint);
         if (countDownStartingDelay - Time.deltaTime > 0f)
         {
             countDownStartingDelay -= Time.deltaTime;

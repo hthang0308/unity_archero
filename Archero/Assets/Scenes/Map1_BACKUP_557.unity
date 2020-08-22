@@ -3721,6 +3721,10 @@ PrefabInstance:
     - target: {fileID: 1120058431487167189, guid: fed267de7795c0a40a2999ac85695a2b,
         type: 3}
       propertyPath: delayNextAttack
+<<<<<<< HEAD
+      value: 0.2
+      objectReference: {fileID: 0}
+=======
       value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1120058431487167189, guid: fed267de7795c0a40a2999ac85695a2b,
@@ -3743,6 +3747,7 @@ PrefabInstance:
       propertyPath: atkPoint
       value: 20
       objectReference: {fileID: 0}
+>>>>>>> 68345ac4dbcc17b87d0cff2faefdfd750176380e
     - target: {fileID: 4174603000738680542, guid: fed267de7795c0a40a2999ac85695a2b,
         type: 3}
       propertyPath: m_AnchorMax.y

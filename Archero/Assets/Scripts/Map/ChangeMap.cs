@@ -8,7 +8,7 @@ public class ChangeMap : BaseMonoBehaviour
     {
         if (other.GetComponent<PlayerInfo>() != null)
         {
-            MapManager.instance.ChangeMap();
+            MapManager.instance.ChangingMap();
         }
     }
 

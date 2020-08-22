@@ -7,7 +7,7 @@ public class HealthBase : BaseMonoBehaviour
 {
     [SerializeField] protected HealthBarUI healthBarUI;
 
-    public float hP;
+    [HideInInspector] public float hP;
     [SerializeField] public float maxHP = 100f;
 
     protected float shield;
