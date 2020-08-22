@@ -16,6 +16,7 @@ public class MapManager : MonoBehaviour
     [SerializeField] protected MapInfo mapInit;
     [HideInInspector] public MapInfo curMap;
     public CameraControl cameraControl;
+    [SerializeField] protected GameObject changingMapCanvas;
 
     public void Awake()
     {
@@ -24,8 +25,7 @@ public class MapManager : MonoBehaviour
 
     public void ChangeMap()
     {
-        if (mapInit == null)
-            return;
+        
         if (curMap != null)
             Destroy(curMap.gameObject);
         curMap = Instantiate(mapInit);
@@ -33,7 +33,14 @@ public class MapManager : MonoBehaviour
         GameManager.instance.player.transform.SetPositionAndRotation(curMap.startingPos.position, Quaternion.identity);
         cameraControl.SetClamp(curMap.startingPos.position.z, curMap.endingPos.transform.position.z);
         mapInit = curMap.nextMap;
+    }
 
+    public void ChangingMap()
+    {
+        Debug.Log(mapInit == null);
+        if (mapInit == null)
+            return;
+        changingMapCanvas.SetActive(true);
     }
 
 
