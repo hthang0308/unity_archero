@@ -3389,7 +3389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e953922ab64174cb243683340b628e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapInit: {fileID: 4449191200003035530, guid: e2211e8583da7ec41940246afe3c66c3, type: 3}
+  mapInit: {fileID: 2470139263267328317, guid: a4fb92bfbfd374b418d7f00532fd088d, type: 3}
   curMap: {fileID: 0}
   cameraControl: {fileID: 1392662073}
 --- !u!114 &1833390628
@@ -3510,6 +3510,11 @@ PrefabInstance:
         type: 3}
       propertyPath: frontShotDeltaPos
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1120058431487167189, guid: fed267de7795c0a40a2999ac85695a2b,
+        type: 3}
+      propertyPath: delayNextAttack
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4174603000738680542, guid: fed267de7795c0a40a2999ac85695a2b,
         type: 3}
