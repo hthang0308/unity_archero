@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: PhantomCloak
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: e7011b26e84b32d499df1d657f110814, type: 3}
+  hP: 50
+  speed: 2

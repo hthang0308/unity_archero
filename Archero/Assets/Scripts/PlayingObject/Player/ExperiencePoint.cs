@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ExperiencePoint : BaseMonoBehaviour
 {
     [HideInInspector] public float exp = 0f;
-    [SerializeField] public float levelExp = 30f;
+    [SerializeField] public float levelExp = 40f;
     [SerializeField] protected GameObject slotMachine;
     [SerializeField] protected Slider expBar;
     protected float barVelocity;
@@ -26,12 +26,13 @@ public class ExperiencePoint : BaseMonoBehaviour
     public override void UpdateFixed()
     {
         expBar.value = Mathf.SmoothDamp(expBar.value, exp, ref barVelocity, 0.01f);
-        while (levelExp <= exp)
+        if (levelExp <= exp)
         {
             //level up
             exp -= levelExp;
             slotMachine.SetActive(true);
             expBar.value = exp;
+            levelExp *= 1.1f;
         }
     }
 }

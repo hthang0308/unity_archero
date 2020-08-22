@@ -94,7 +94,7 @@ public class ArrowDamageSource : DamageSourceBase
     }
 
     public virtual void SetUpArrow(Vector3 inDirection, float inDistance, float inSpeed, bool inPenetrate, bool inBouncing, 
-        List<EffectBaseData> inEffectBaseDatas)
+        List<EffectBaseData> inEffectBaseDatas, float inAtkPoint)
     {
         distance = inDistance;
         speed = inSpeed;
@@ -103,6 +103,7 @@ public class ArrowDamageSource : DamageSourceBase
         countDownDistance = distance;
         bouncingWall = inBouncing;
         effectDatas = inEffectBaseDatas;
+        atkPoint = inAtkPoint;
 
     }
 

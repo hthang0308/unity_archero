@@ -1058,7 +1058,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 881842924}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 881842926}
+        m_MethodName: OnClickToRemoveButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &881842924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1852,6 +1863,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b8d1a54989b41042822735efce795cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory: {fileID: 1992070692}
+  buttonPrefab: {fileID: 5041979234707244740, guid: 09e9da3aa4193e949a39875cfba7ca6a,
+    type: 3}
   weapon: {fileID: 2115003950}
   cloth: {fileID: 881842926}
   ring: {fileID: 1894095080}
@@ -1993,6 +2007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changingPanel: {fileID: 1526254089}
+  currentEquipment: {fileID: 1377233603}
 --- !u!1 &1531689635
 GameObject:
   m_ObjectHideFlags: 0
@@ -3045,7 +3060,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1894095082}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1894095080}
+        m_MethodName: OnClickToRemoveButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1894095082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3178,7 +3204,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1915369522}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1915369520}
+        m_MethodName: OnClickToRemoveButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1915369522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3530,7 +3567,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2115003948}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2115003950}
+        m_MethodName: OnClickToRemoveButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2115003948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3698,6 +3746,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919397131256410469, guid: 09e9da3aa4193e949a39875cfba7ca6a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09e9da3aa4193e949a39875cfba7ca6a, type: 3}

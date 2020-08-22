@@ -18,10 +18,21 @@ public class GameManager : MonoBehaviour
 
     public PlayerInfo player;
     [HideInInspector] public List<LivingObjectInfo> enemies;
-    
+
 
     public void Awake()
     {
+        CurrentEquipment equipments = CurrentEquipment.instance;
+        if (equipments)
+        {
+            equipments.cloth.equipment.Affect(player);
+            equipments.weapon.equipment.Affect(player);
+            equipments.spirit.equipment.Affect(player);
+            equipments.ring.equipment.Affect(player);
+            Destroy(equipments.gameObject);
+            equipments = null;
+        }
+
     }
 
     

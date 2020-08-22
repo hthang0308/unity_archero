@@ -10,7 +10,7 @@ public class PlayerAttack : AttackBase
 
     public override void UpdateNormal()
     {
-        if (!playerState.IsMoving)
+        if (!playerState.IsMoving) 
         {
             List<LivingObjectInfo> enemies = GameManager.instance.enemies;
             if (enemies.Count == 0)
@@ -22,7 +22,6 @@ public class PlayerAttack : AttackBase
             {
                 if (lookAtEnemy == null || !lookAtEnemy.gameObject.activeInHierarchy || Attacking == false)
                 {
-                    Attacking = true;
                     Vector3 curPos = transform.position;
                     lookAtEnemy = enemies[0].transform;
                     float minDistance = (lookAtEnemy.position - curPos).sqrMagnitude;
@@ -38,6 +37,7 @@ public class PlayerAttack : AttackBase
                     }
                     PlayerStyleAttack playerAttack = curAttackStyle as PlayerStyleAttack;
                     playerAttack.enemyLookAt = lookAtEnemy;
+                    Attacking = true;
                 }
                 else Attacking = true;
             }

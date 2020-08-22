@@ -6,7 +6,7 @@ public class MovingBase : BaseMonoBehaviour
 {
     [SerializeField] protected State state;
     [SerializeField] protected Rigidbody rigidbody;
-    [SerializeField] protected float maxSpeed;
+    public float maxSpeed;
     protected float speed;
     [HideInInspector] public Vector3 direction = new Vector3();
 

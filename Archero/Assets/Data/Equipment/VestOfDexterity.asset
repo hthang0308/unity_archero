@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: VestOfDexterity
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 04e623a790abaca45b41dbdca98c6342, type: 3}
+  hP: 50
+  speed: 0.5

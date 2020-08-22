@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 public class ButtonsMain : MonoBehaviour
 {
     [SerializeField] Animator changingPanel;
+    [SerializeField] GameObject currentEquipment;
 
     public void LoadScene()
     {
+        currentEquipment.SetActive(false);
         SceneManager.LoadScene("Map1");
     }
 

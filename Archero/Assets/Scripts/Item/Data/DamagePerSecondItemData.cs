@@ -11,7 +11,14 @@ public class DamagePerSecondItemData : ItemCreateData
         type = ItemBase.Type.DAMAGE_PER_SECOND;
     }
 
-    [SerializeField] private DamagePerSecondData dmgPerSecData;
+    [SerializeField] protected DamagePerSecondData dmgPerSecData;
 
     public DamagePerSecondData DmgPerSecData { get => dmgPerSecData; }
+
+    public override void AddItem()
+    {
+        List<ItemBase> items = ItemManager.instance.items;
+
+        items.Add(new DamagePerSecondItem(icon, dmgPerSecData));
+    }
 }

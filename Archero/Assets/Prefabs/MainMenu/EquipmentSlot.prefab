@@ -120,7 +120,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5041979234707244740}
-        m_MethodName: OnClickButton
+        m_MethodName: OnClickToAddButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

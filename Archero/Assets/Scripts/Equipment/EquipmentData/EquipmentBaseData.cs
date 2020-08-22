@@ -12,4 +12,9 @@ public class EquipmentBaseData : ScriptableObject
     {
         return null;
     }
+
+    public virtual void Affect(PlayerInfo player)
+    {
+
+    }
 }

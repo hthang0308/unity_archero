@@ -5,6 +5,8 @@ using UnityEngine;
 public class CurrentEquipment : MonoBehaviour
 {
     public static CurrentEquipment instance;
+    public GameObject inventory;
+    public EquipmentSlot buttonPrefab;
     public CurrentEquipment()
     {
         if (instance == null)
@@ -19,5 +21,11 @@ public class CurrentEquipment : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnDisable()
+    {
+        gameObject.transform.SetParent(null);
+        DontDestroyOnLoad(gameObject);
     }
 }

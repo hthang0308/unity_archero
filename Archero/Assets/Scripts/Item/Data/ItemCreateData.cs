@@ -5,17 +5,17 @@ using UnityEngine.UI;
 
 public class ItemCreateData : ScriptableObject
 {
-    [SerializeField] private Sprite icon;
-    [SerializeField] private float number;
+    [SerializeField] protected Sprite icon;
+    [SerializeField] protected float number;
     protected ItemBase.Type type;
 
     public Sprite Icon { get => icon; }
     public float Number { get => number; }
     public ItemBase.Type Type { get => type; }
 
-    public void AddItem()
+    public virtual void AddItem()
     {
-
+        List<ItemBase> items = ItemManager.instance.items;
     }
 }
 

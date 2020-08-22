@@ -29,58 +29,13 @@ public class PlayerStyleAttack : AttackStyleBase<ArrowDamageSource>
     //Arrow Set Up
     [Header("Arrow Set Up")]
     [Space(20)]
+    [SerializeField] public float atkPoint = 10f;
     [SerializeField] public float distance = 20f;
     [SerializeField] public float speed = 0.8f;
     [SerializeField] public bool penetrate = false;
     [SerializeField] public bool bouncingWall = true;
     [HideInInspector] public List<EffectBaseData> effectDatas = new List<EffectBaseData>();
 
-    //public int FrontShot { set => frontShot = value; }
-    //public int DiagonalShot { set => diagonalShot = value; }
-
-    //public float Distance
-    //{
-    //    set
-    //    {
-    //        distance = value;
-    //        List<ArrowDamageSource> arrows = dmgPool.poolAll;
-    //        for (int i = 0; i < arrows.Count; i++)
-    //            arrows[i].distance = distance;
-    //    }
-    //}
-
-    //public float Speed
-    //{
-    //    set
-    //    {
-    //        speed = value;
-    //        List<ArrowDamageSource> arrows = dmgPool.poolAll;
-    //        for (int i = 0; i < arrows.Count; i++)
-    //            arrows[i].speed = speed;
-    //    }
-    //}
-
-    //public bool Penetrate
-    //{
-    //    set
-    //    {
-    //        penetrate = value;
-    //        List<ArrowDamageSource> arrows = dmgPool.poolAll;
-    //        for (int i = 0; i < arrows.Count; i++)
-    //            arrows[i].penetrate = penetrate;
-    //    }
-    //}
-
-    //public bool BouncingWall
-    //{
-    //    set
-    //    {
-    //        bouncingWall = value;
-    //        List<ArrowDamageSource> arrows = dmgPool.poolAll;
-    //        for (int i = 0; i < arrows.Count; i++)
-    //            arrows[i].bouncingWall = bouncingWall;
-    //    }
-    //}
 
     public override void OnEnable()
     {
@@ -168,13 +123,13 @@ public class PlayerStyleAttack : AttackStyleBase<ArrowDamageSource>
             arrow.transform.SetPositionAndRotation(fireTransform.position, 
                 fireTransform.rotation);
             arrow.SetUpArrow(Quaternion.AngleAxis(diagonalShotAngle * i, Vector3.up) * rotation,
-                distance, speed, penetrate, bouncingWall, effectDatas);
+                distance, speed, penetrate, bouncingWall, effectDatas, atkPoint);
 
             arrow = dmgPool.GetFromPool(dmgPrefab);
             arrow.transform.SetPositionAndRotation(fireTransform.position, 
                 fireTransform.rotation);
             arrow.SetUpArrow(Quaternion.AngleAxis(-diagonalShotAngle * i, Vector3.up) * rotation,
-                distance, speed, penetrate, bouncingWall, effectDatas);
+                distance, speed, penetrate, bouncingWall, effectDatas, atkPoint);
         }
     }
 
@@ -188,7 +143,7 @@ public class PlayerStyleAttack : AttackStyleBase<ArrowDamageSource>
         {
             ArrowDamageSource arrow = dmgPool.GetFromPool(dmgPrefab);
             arrow.transform.SetPositionAndRotation(tmpPos, fireTransform.rotation);
-            arrow.SetUpArrow(fireTransform.forward, distance, speed, penetrate, bouncingWall, effectDatas);
+            arrow.SetUpArrow(fireTransform.forward, distance, speed, penetrate, bouncingWall, effectDatas, atkPoint);
             tmpPos += xDirection * frontShotDeltaPos;
         }
     }

@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: WolfRing
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: b0a2390ab9d9fb9429cee2315bce7ea5, type: 3}
+  hP: 20
+  atk: 10
