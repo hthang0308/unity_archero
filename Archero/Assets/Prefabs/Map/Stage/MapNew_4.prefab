@@ -402,7 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9663db18ffab8e64cb3bc4a40ad7b110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextMap: {fileID: 4449191200003035530}
+  nextMap: {fileID: 4449191200003035530, guid: e2211e8583da7ec41940246afe3c66c3, type: 3}
   enemies:
   - {fileID: 4449191198960935158}
   - {fileID: 4449191199427095257}
