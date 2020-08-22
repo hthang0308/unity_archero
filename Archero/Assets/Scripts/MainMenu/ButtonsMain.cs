@@ -6,11 +6,16 @@ using UnityEngine.SceneManagement;
 public class ButtonsMain : MonoBehaviour
 {
     [SerializeField] Animator changingPanel;
-    [SerializeField] GameObject currentEquipment;
+
+    public void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
     public void LoadScene()
     {
-        currentEquipment.SetActive(false);
+        Time.timeScale = 0f;
+        gameObject.SetActive(false);
         SceneManager.LoadScene("Map1");
     }
 
