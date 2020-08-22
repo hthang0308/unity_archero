@@ -1732,9 +1732,9 @@ GameObject:
   - component: {fileID: 90467286787917310}
   - component: {fileID: 90467286787917311}
   - component: {fileID: 90467286787917304}
-  - component: {fileID: 90467286787917305}
-  - component: {fileID: 90467286787917306}
   - component: {fileID: 90467286787917284}
+  - component: {fileID: 1120058431487167189}
+  - component: {fileID: 8743588562877781739}
   m_Layer: 13
   m_Name: PolyartCharacter
   m_TagString: Untagged
@@ -1829,7 +1829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   health: {fileID: 90467286787917309}
-  attackBase: {fileID: 90467286787917306}
+  attackBase: {fileID: 8743588562877781739}
   movement: {fileID: 90467286787917310}
   dmgSource: {fileID: 0}
   status: {fileID: 90467286787917311}
@@ -1898,50 +1898,6 @@ MonoBehaviour:
   levelExp: 40
   slotMachine: {fileID: 0}
   expBar: {fileID: 1638530017}
---- !u!114 &90467286787917305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7162757382900038319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7a7dfb41d86f174a8e2a909757a9632, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayNextAttack: 0.5
-  fireTransform: {fileID: 90467288013979825}
-  dmgPrefab: {fileID: 55725499, guid: 3d258ee8ef8b9fd44b63afa18becc45e, type: 3}
-  enemyLookAt: {fileID: 0}
-  playerAnimator: {fileID: 90467286787917284}
-  startingDelay: 0.1
-  delayNextShot: 0.2
-  numberShots: 2
-  frontShot: 2
-  frontShotDeltaPos: 0.3
-  diagonalShot: 1
-  diagonalShotAngle: 30
-  atkPoint: 10
-  distance: 20
-  speed: 20
-  penetrate: 0
-  bouncingWall: 1
-  effectDatas: []
---- !u!114 &90467286787917306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7162757382900038319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59a7a8fde73d50840be4523f3852091f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  curAttackStyle: {fileID: 90467286787917305}
-  playerState: {fileID: 90467286787917284}
 --- !u!114 &90467286787917284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1955,6 +1911,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7162757382907447597}
+--- !u!114 &1120058431487167189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7162757382900038319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec929a7d42b4664db852a960e7b65e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayNextAttack: 3
+  fireTransform: {fileID: 90467288013979825}
+  dmgPrefab: {fileID: 55725499, guid: 3d258ee8ef8b9fd44b63afa18becc45e, type: 3}
+  enemyLookAt: {fileID: 0}
+  playerAnimator: {fileID: 90467286787917284}
+  startingDelay: 0.1
+  delayNextShot: 0.8
+  numberShots: 1
+  frontShot: 1
+  frontShotDeltaPos: 5
+  diagonalShot: 0
+  diagonalShotAngle: 10
+  atkPoint: 10
+  distance: 20
+  speed: 10
+  penetrate: 0
+  bouncingWall: 0
+  effectDatas: []
+--- !u!114 &8743588562877781739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7162757382900038319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da448daebb8a61040b6453a84c14eae9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curAttackStyle: {fileID: 1120058431487167189}
+  playerState: {fileID: 90467286787917284}
 --- !u!1 &7162757382900038321
 GameObject:
   m_ObjectHideFlags: 0

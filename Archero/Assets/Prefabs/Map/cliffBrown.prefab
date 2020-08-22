@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 491098735544637555}
   - component: {fileID: 2392621944502021305}
   - component: {fileID: 3227210335328841173}
+  - component: {fileID: 261752420898400335}
   m_Layer: 10
   m_Name: cliffBrown
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4194171265872252268}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.657189, y: 24.699812, z: 81.562}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -93,3 +94,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.3752671, y: 3.0000002, z: 3}
   m_Center: {x: -0.6876336, y: 1.4999999, z: 1.5}
+--- !u!208 &261752420898400335
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4194171265872252268}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.688, y: 1.5000001, z: 1.5000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.688, y: 1.5000001, z: 1.5000001}
+  m_TimeToStationary: 0.5
