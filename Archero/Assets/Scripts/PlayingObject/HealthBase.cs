@@ -16,7 +16,7 @@ public class HealthBase : BaseMonoBehaviour
     protected virtual void OnEnable()
     {
         hP = maxHP;
-        healthBarUI.SetHealthUI(hP / maxHP);
+        healthBarUI.SetHealthUI(hP / maxHP, 0);
     }
     //protected void Awake()
     //{
@@ -40,7 +40,7 @@ public class HealthBase : BaseMonoBehaviour
             }
         }
         else hP -= dmg;
-        healthBarUI.SetHealthUI(hP / maxHP);
+        healthBarUI.SetHealthUI(hP / maxHP, dmg);
         if ((hP <= 0)&&(!isDead))
             OnDeath();
     }

@@ -96,7 +96,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   atkPoint: 10
   effectDatas: []
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 8192
   bulletRig: {fileID: 6344828382387486818}
+  radiusExplosion: 2
+  explosion: {fileID: 557484747650677908, guid: 1a222300f8070fe44bbdc279453e4d76,
+    type: 3}
 --- !u!65 &-3958517950796283108
 BoxCollider:
   m_ObjectHideFlags: 0

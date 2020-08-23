@@ -4,13 +4,32 @@ using UnityEngine;
 
 public class ExplosionDamageSource : DamageSourceBase
 {
+    public LayerMask playerMask;
     public Rigidbody bulletRig;
+    public float radiusExplosion;
+    [SerializeField] BulletExplosion explosion;
+    protected BulletExplosion currentExplosion;
+    public override void Awake()
+    {
+        base.Awake();
+        currentExplosion= Instantiate(explosion);
+        currentExplosion.gameObject.SetActive(false);
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 13)
+        Collider[] colliders = Physics.OverlapSphere(transform.position, radiusExplosion, playerMask);
+
+        // Go through all the colliders...
+        for (int i = 0; i < colliders.Length; i++)
         {
-            DoDamage(other.GetComponent<LivingObjectInfo>());
+            // ... and find their rigidbody.
+            if (colliders[i].gameObject.layer == 13)
+                DoDamage(colliders[i].GetComponent<PlayerInfo>());
         }
+        currentExplosion.gameObject.transform.SetPositionAndRotation(transform.position, transform.rotation);
+        currentExplosion.gameObject.SetActive(true);
+        currentExplosion.particle.Play();
+        currentExplosion.audioSource.Play();
         gameObject.SetActive(false);
     }
 }
