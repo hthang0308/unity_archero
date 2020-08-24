@@ -13,7 +13,7 @@ public class ArrowDamageSource : DamageSourceBase
 
     [HideInInspector] public float speed = 0.8f;
 
-    protected Vector3 direction = new Vector3(1, 0, 1);
+    protected Vector3 direction;
     public Vector3 Direction
     {
         set
@@ -104,7 +104,6 @@ public class ArrowDamageSource : DamageSourceBase
         bouncingWall = inBouncing;
         effectDatas = inEffectBaseDatas;
         atkPoint = inAtkPoint;
-
     }
 
     public void OnDisable()

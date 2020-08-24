@@ -18,5 +18,14 @@ public class State : BaseMonoBehaviour
             animator.SetBool(AnimatorParameters.var_isMovingID, isMoving);
         }
     }
+    protected bool isDead = false;
+    public bool IsDead
+    {
+        set
+        {
+            isDead = value;
+            animator.SetBool(AnimatorParameters.var_isDeadID, isDead);
+        }
+    }
 
 }

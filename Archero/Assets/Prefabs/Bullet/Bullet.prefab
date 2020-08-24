@@ -142,5 +142,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   atkPoint: 10
-  effects: []
+  effectDatas: []
   trail: {fileID: 7767267318435356705}
+  distance: 20
+  speed: 0.8
+  penetrate: 0
+  bouncingWall: 0

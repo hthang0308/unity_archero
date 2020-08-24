@@ -65,14 +65,14 @@ public class PlayerStyleAttack : AttackStyleBase<ArrowDamageSource>
 
 
         //Attacking
-        if (isAttack)
+        if (IsAttack)
             Attacking();
         else
         {
             countDownDelayNextAttack -= Time.deltaTime;
             if (countDownDelayNextAttack <= 0f)
             {
-                isAttack = true;
+                IsAttack = true;
                 countDownDelayNextAttack = delayNextAttack;
                 playerAnimator.animator.CrossFadeInFixedTime(hashState, 0);
             }
@@ -95,11 +95,10 @@ public class PlayerStyleAttack : AttackStyleBase<ArrowDamageSource>
         FrontShoot();
         DiagonalShoot();
 
-
         countDownNumberShots--;
         if (countDownNumberShots == 0)
         {
-            isAttack = false;
+            IsAttack = false;
             countDownDelayNextShot = 0;
             countDownNumberShots = numberShots;
             countDownStartingDelay = startingDelay;

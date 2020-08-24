@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class AttackStyleBase : BaseMonoBehaviour
 {
-    protected bool isAttack = false;
+    private bool isAttack=false;
+    protected virtual bool IsAttack
+    {
+        get => isAttack;
+        set => isAttack = value;
+    }
     [SerializeField] protected float delayNextAttack = 3.0f;
     [SerializeField] protected Transform fireTransform;
     protected float countDownDelayNextAttack;
@@ -13,25 +18,23 @@ public class AttackStyleBase : BaseMonoBehaviour
     {
         //set countDown
         countDownDelayNextAttack = delayNextAttack;
-        isAttack = true;
-
+        IsAttack = true;
     }
 
     public override void UpdateNormal()
     {
         //Attacking
-        if (isAttack)
+        if (IsAttack)
             Attacking();
         else
         {
             countDownDelayNextAttack -= Time.deltaTime;
             if (countDownDelayNextAttack <= 0f)
             {
-                isAttack = true;
+                IsAttack = true;
                 countDownDelayNextAttack = delayNextAttack;
             }
         }
-
     }
 
     protected virtual void Attacking()

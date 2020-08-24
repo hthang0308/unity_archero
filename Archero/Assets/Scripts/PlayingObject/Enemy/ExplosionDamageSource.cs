@@ -19,12 +19,9 @@ public class ExplosionDamageSource : DamageSourceBase
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, radiusExplosion, playerMask);
 
-        // Go through all the colliders...
         for (int i = 0; i < colliders.Length; i++)
         {
-            // ... and find their rigidbody.
-            if (colliders[i].gameObject.layer == 13)
-                DoDamage(colliders[i].GetComponent<PlayerInfo>());
+            DoDamage(colliders[i].GetComponent<PlayerInfo>());
         }
         currentExplosion.gameObject.transform.SetPositionAndRotation(transform.position, transform.rotation);
         currentExplosion.gameObject.SetActive(true);

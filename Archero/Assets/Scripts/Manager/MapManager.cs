@@ -37,7 +37,6 @@ public class MapManager : MonoBehaviour
 
     public void ChangingMap()
     {
-        Debug.Log(mapInit == null);
         if (mapInit == null)
             return;
         changingMapCanvas.SetActive(true);
