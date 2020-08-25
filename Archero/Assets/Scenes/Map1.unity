@@ -3463,7 +3463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e953922ab64174cb243683340b628e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapInit: {fileID: 4449191200003035530, guid: ab45f674ba9e0da41b710cb1149bd3ff, type: 3}
+  mapInit: {fileID: 2470139263267328317, guid: a4fb92bfbfd374b418d7f00532fd088d, type: 3}
   curMap: {fileID: 0}
   cameraControl: {fileID: 1392662073}
   changingMapCanvas: {fileID: 2072214175}
@@ -3700,10 +3700,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 629785766, guid: fed267de7795c0a40a2999ac85695a2b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 811094060, guid: fed267de7795c0a40a2999ac85695a2b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

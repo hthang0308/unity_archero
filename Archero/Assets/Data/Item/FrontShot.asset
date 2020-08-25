@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: FrontShot
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: d13104ee62bffd84f8f252e2398b0b26, type: 3}
-  number: 1
+  number: 2
