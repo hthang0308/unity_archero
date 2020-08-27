@@ -36,7 +36,9 @@ public class GameManager : MonoBehaviour
             Destroy(equipments.parentGameObject);
             equipments = null;
         }
-
+        //ignore collider boss voi nguoi choi
+        Physics.IgnoreLayerCollision(18, 13, true);
+        Physics.IgnoreLayerCollision(18, 16, true);
     }
 
     
@@ -50,17 +52,4 @@ public class GameManager : MonoBehaviour
             GoldCoinPool.instance.GetExperience();
         }
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
 }

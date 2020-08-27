@@ -8,12 +8,12 @@ public class LaserDamageSource : DamageSourceBase
 
     [SerializeField] protected TrailRenderer trail;
 
-    protected float countDownDistance=30f;
-    private float speed = 30f;
+    protected float countDownDistance;
+    protected float speed = 20f;
 
     protected bool disable = false;
     protected RaycastHit hit;
-    protected Vector3 direction;
+    protected Vector3 direction= new Vector3(1,0,1);
     public Vector3 Direction
     {
         set
@@ -30,14 +30,14 @@ public class LaserDamageSource : DamageSourceBase
 
 
 
-    public void OnEnable()
+    public virtual void OnEnable()
     {
         disable = false;
-        countDownDistance = 20f;
+        countDownDistance = 30f;
     }
 
 
-    public override void UpdateNormal()
+    public override void UpdateFixed()
     {
         if (disable)
         {
@@ -46,7 +46,6 @@ public class LaserDamageSource : DamageSourceBase
             
 
         float deltaMovement = Time.deltaTime * speed;
-
         if (deltaMovement >= countDownDistance)
         {
             deltaMovement = countDownDistance;
@@ -60,7 +59,6 @@ public class LaserDamageSource : DamageSourceBase
             //if ((hit.collider.gameObject.layer & playerLayer) != 0)
             if (hit.collider.gameObject.layer==playerLayer)
             {
-                Debug.Log(hit.collider.gameObject.name);
                 LivingObjectInfo target = hit.collider.GetComponent<LivingObjectInfo>();
                 DoDamage(target);
                 transform.position = hit.point;
@@ -77,14 +75,21 @@ public class LaserDamageSource : DamageSourceBase
             {
                 transform.position = hit.point;
                 disable = true;
-                Debug.Log(Time.time + "c");
             }
         }
         else 
             transform.position += deltaMovement * direction;
     }
-    public void OnDisable()
+    private void OnDisable()
     {
-        trail.Clear();
+        if (trail!=null)
+            trail.Clear();
+    }
+    public virtual void SetUp(float distance, float inSpeed, float inAtkPoint, List<EffectBaseData> inEffectBaseDatas)
+    {
+        countDownDistance = distance;
+        speed = inSpeed;
+        effectDatas = inEffectBaseDatas;
+        atkPoint = inAtkPoint;
     }
 }

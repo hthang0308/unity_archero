@@ -13,11 +13,6 @@ public class EnemyHealth : HealthBase
         base.OnEnable();
         playerExp = GameManager.instance.player.experience;
     }
-    //private void Update()
-    //{
-    //    TakeDmage(1f);
-    //    Debug.Log("Current HP: " + hP);
-    //}
     protected override void OnDeath()
     {
         GoldCoinPool.instance.UseCoin(transform.position, expOnDeath);

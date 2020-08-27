@@ -105,7 +105,7 @@ MonoBehaviour:
   sliderUI: {fileID: 1901953545854430252}
   fillSliderUI: {fileID: 460804562822200677}
   hpText: {fileID: 5317607379291026445}
-  parent: {fileID: 0}
+  parent: {fileID: 4316378976379982232}
   offset: {x: 0, y: 1, z: -1}
 --- !u!1 &2029879150002172729
 GameObject:

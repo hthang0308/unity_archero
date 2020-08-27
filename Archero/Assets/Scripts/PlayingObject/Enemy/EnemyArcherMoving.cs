@@ -8,28 +8,24 @@ using UnityEngine.UIElements;
 
 public class EnemyArcherMoving : EnemyMovingBase
 {
-    [HideInInspector]
-    public bool findAreaToShoot=false;
+    [SerializeField] float rangeMoving = 10f;
     float x, z;
     Vector3 destination;
     NavMeshPath path;
-    public override void UpdateNormal()
+    public void FindAreaToShoot()
     {
-        if (findAreaToShoot==true)
+        while (true)
         {
-            while (findAreaToShoot == true)
+            x = UnityEngine.Random.Range(-rangeMoving, rangeMoving);
+            z = Mathf.Sqrt(rangeMoving* rangeMoving - x * x);
+            if (UnityEngine.Random.value >= 0.5)
+                z = -z;
+            destination = transform.position + new Vector3(x, 0, z);
+            path = new NavMeshPath();
+            if ((_navMeshAgent.CalculatePath(destination, path)) && ((destination - playerTransform.position).magnitude > rangeMoving/2))
             {
-                x = UnityEngine.Random.Range(-5, 5);
-                z = Mathf.Sqrt(25 - x * x);
-                if (UnityEngine.Random.value >= 0.5)
-                    z = -z;
-                destination = transform.position + new Vector3(x, 0, z);
-                path= new NavMeshPath();
-                if ((_navMeshAgent.CalculatePath(destination,path))&&((destination-playerTransform.position).magnitude>5f))
-                {
-                    _navMeshAgent.SetPath(path);
-                    findAreaToShoot = false;
-                }
+                _navMeshAgent.SetPath(path);
+                break;
             }
         }
     }

@@ -18,6 +18,9 @@ public class MapManager : MonoBehaviour
     public CameraControl cameraControl;
     [SerializeField] protected GameObject changingMapCanvas;
 
+    //public GameObject experienceBar;
+    //public HealthBarUI bossHpBar;
+
     public void Awake()
     {
         ChangeMap();
@@ -25,7 +28,6 @@ public class MapManager : MonoBehaviour
 
     public void ChangeMap()
     {
-        
         if (curMap != null)
             Destroy(curMap.gameObject);
         curMap = Instantiate(mapInit);

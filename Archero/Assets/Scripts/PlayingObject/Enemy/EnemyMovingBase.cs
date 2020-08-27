@@ -15,9 +15,9 @@ public class EnemyMovingBase : MovingBase
         playerTransform = GameManager.instance.player.transform;
         _navMeshAgent.speed = maxSpeed;
     }
-    private bool isMoving = false;
+    protected bool isMoving = false;
 
-    public bool IsMoving
+    public virtual bool IsMoving
     {
         get => isMoving;
         set
@@ -38,6 +38,5 @@ public class EnemyMovingBase : MovingBase
         }
     }
 }
-
 
 

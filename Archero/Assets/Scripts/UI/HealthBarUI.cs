@@ -50,7 +50,6 @@ public class HealthBarUI : BaseMonoBehaviour
         {
             hpText.text = Math.Round(damageTaken).ToString();
             timeCount = 0;
-        }
-            
+        }   
     }
 }

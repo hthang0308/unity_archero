@@ -1031,7 +1031,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8980390744224071177}
   - component: {fileID: 8980390744216342973}
-  - component: {fileID: 5054314036260640114}
+  - component: {fileID: 3023004234467269243}
   - component: {fileID: 8198805922179210626}
   - component: {fileID: 552058911}
   - component: {fileID: 1879724542417874820}
@@ -1086,7 +1086,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5054314036260640114
+--- !u!114 &3023004234467269243
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1095,7 +1095,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8980390744223769135}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf2ef8ea1dce83d46afcb006424eca06, type: 3}
+  m_Script: {fileID: 11500000, guid: 68f272f71c363a049befe3b89ffaacd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8980390744216342973}
@@ -1111,12 +1111,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4615367d25b38384d8c1a098d52958c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: {fileID: 5054314036260640114}
+  state: {fileID: 3023004234467269243}
   rigidbody: {fileID: 552058911}
   maxSpeed: 3
   direction: {x: 0, y: 0, z: 0}
   _navMeshAgent: {fileID: 1879724542417874820}
-  findAreaToShoot: 0
+  rangeMoving: 6
 --- !u!54 &552058911
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1143,7 +1143,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 6
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1173,7 +1173,7 @@ MonoBehaviour:
   movement: {fileID: 8198805922179210626}
   dmgSource: {fileID: 0}
   status: {fileID: 7609168205937253819}
-  state: {fileID: 5054314036260640114}
+  state: {fileID: 3023004234467269243}
 --- !u!114 &5958425783444085752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1231,11 +1231,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d2d7b6a6f98b64c94ac1c1750cd77c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayNextAttack: 3
+  delayNextAttack: 2
   fireTransform: {fileID: 582504901379131506}
   dmgPrefab: {fileID: 6255607510067165650, guid: 2fddc3ba16e056e46a69f84edea76ca8,
     type: 3}
+  timeMove: 1
   moving: {fileID: 8198805922179210626}
+  state: {fileID: 3023004234467269243}
+  distance: 10
+  speed: 10
+  atkPoint: 10
+  effectDatas: []
 --- !u!65 &8381020806309411664
 BoxCollider:
   m_ObjectHideFlags: 0

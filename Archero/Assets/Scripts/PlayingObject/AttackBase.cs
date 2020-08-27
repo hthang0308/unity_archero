@@ -26,6 +26,7 @@ public class AttackBase : BaseMonoBehaviour
         {
             Attacking = false;
             curAttackStyle = value;
+            curAttackStyle.enabled = true;
         }
     }
 

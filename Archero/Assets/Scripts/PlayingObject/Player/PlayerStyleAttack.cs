@@ -48,7 +48,6 @@ public class PlayerStyleAttack : AttackStyleBase<ArrowDamageSource>
             hashState = AnimatorParameters.state_singleShotID;
             playerAnimator.IsMultiShot = false;
         }
-
         else
         {
             hashState = AnimatorParameters.state_multiShotID;
@@ -65,14 +64,14 @@ public class PlayerStyleAttack : AttackStyleBase<ArrowDamageSource>
 
 
         //Attacking
-        if (IsAttack)
+        if (isAttack)
             Attacking();
         else
         {
             countDownDelayNextAttack -= Time.deltaTime;
             if (countDownDelayNextAttack <= 0f)
             {
-                IsAttack = true;
+                isAttack = true;
                 countDownDelayNextAttack = delayNextAttack;
                 playerAnimator.animator.CrossFadeInFixedTime(hashState, 0);
             }
@@ -98,7 +97,7 @@ public class PlayerStyleAttack : AttackStyleBase<ArrowDamageSource>
         countDownNumberShots--;
         if (countDownNumberShots == 0)
         {
-            IsAttack = false;
+            isAttack = false;
             countDownDelayNextShot = 0;
             countDownNumberShots = numberShots;
             countDownStartingDelay = startingDelay;

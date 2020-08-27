@@ -5,7 +5,7 @@ using UnityEngine;
 public class DamageSourceBase : BaseMonoBehaviour
 {
     protected int layerToIgnore = 0;
-    public float atkPoint = 10f;
+    protected float atkPoint = 10f;
     [HideInInspector] public List<EffectBaseData> effectDatas = new List<EffectBaseData>();
 
 
