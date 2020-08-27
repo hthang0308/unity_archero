@@ -44,7 +44,7 @@ public class ArrowDamageSource : DamageSourceBase
     public void OnEnable()
     {
         disable = false;
-        Debug.Log(collisionLayer);
+        //Debug.Log(collisionLayer);
         //dealDamage = false;
     }
 
