@@ -19,16 +19,20 @@ public class BossDragonAttackStyle_TailAttack : AttackStyleBase
 
     ExplosionDamageSource explosion;
     protected int hashState;
+    int countAttack = 0;
+    int attackPerTime = 3;
     public override void OnEnable()
     {
         base.OnEnable();
         hashState = AnimatorParameters.state_attackType2_ID;
         explosion = Instantiate(explosionPrefab);
         explosion.SetUp(atkPoint, radiusExplosion);
+        state.Attack2 = 1;
     }
     protected override void Attacking()
     {
         StartCoroutine(AttackAnimation());
+        countAttack++;
         isAttack = false;
     }
     protected IEnumerator AttackAnimation()
@@ -43,6 +47,12 @@ public class BossDragonAttackStyle_TailAttack : AttackStyleBase
         explosion.CreateExplosion();
         //finish attack
         state.Attack2 = 0;
+        if (countAttack == attackPerTime)
+        {
+            countAttack = 0;
+            state.Attack1 = false;
+            this.enabled = false;
+        }
     }
 
     //IEnumerator RunningAnimation()

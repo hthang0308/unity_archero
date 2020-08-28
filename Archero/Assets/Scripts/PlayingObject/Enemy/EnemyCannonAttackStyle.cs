@@ -11,13 +11,9 @@ public class EnemyCannonAttackStyle : AttackStyleBase<ExplosionDamageSource>
         base.OnEnable();
         player = GameManager.instance.player.transform;
     }
-    public override void UpdateNormal()
-    {
-        base.UpdateNormal();
-        transform.LookAt(player);
-    }
     protected override void Attacking()
     {
+        transform.LookAt(player);
         ExplosionDamageSource bullet = dmgPool.GetFromPool(dmgPrefab) as ExplosionDamageSource;
         bullet.transform.SetPositionAndRotation(fireTransform.position, fireTransform.rotation);
         bullet.bulletRig.velocity = speed * bullet.transform.forward;

@@ -13,6 +13,10 @@ public class BossDragonAttackStyle_Fireball : AttackStyleBase<FireballDamageSour
     [SerializeField] float atkPoint = 10f;
     [SerializeField] List<EffectBaseData> effectDatas = new List<EffectBaseData>();
     protected int hashState;
+
+
+    int countAttack=0;
+    int attackPerTime = 3;
     public override void Awake()
     {
         dmgPrefab.SetUp(distance, speed, atkPoint, effectDatas);
@@ -23,6 +27,7 @@ public class BossDragonAttackStyle_Fireball : AttackStyleBase<FireballDamageSour
         base.OnEnable();
         player = GameManager.instance.player.transform;
         hashState = AnimatorParameters.state_attackType1_ID;
+        state.Attack1 = true;
     }
     public override void UpdateNormal()
     {
@@ -32,6 +37,7 @@ public class BossDragonAttackStyle_Fireball : AttackStyleBase<FireballDamageSour
     protected override void Attacking()
     {
         StartCoroutine(AttackAnimation());
+        countAttack++;
         isAttack = false;
     }
     protected IEnumerator AttackAnimation()
@@ -45,6 +51,12 @@ public class BossDragonAttackStyle_Fireball : AttackStyleBase<FireballDamageSour
             bullet.Direction = bullet.transform.forward;
         }
         yield return new WaitForSeconds(0.5f);
+        if (countAttack == attackPerTime)
+        {
+            countAttack = 0;
+            state.Attack1 = false;
+            this.enabled = false;
+        }
     }
     //protected void DiagonalShoot()
     //{

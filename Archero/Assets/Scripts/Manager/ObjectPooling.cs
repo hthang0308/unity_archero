@@ -51,7 +51,4 @@ public class ObjectPooling<T> where T:Component
         poolActive.Add(obj);
         return obj;
     }
-
-
-
 }

@@ -809,7 +809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f33a6bc7ac3e684197d91fac01d5a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curAttackStyle: {fileID: 0}
+  curAttackStyle: {fileID: -5935371122399011430}
 --- !u!114 &-5935371122399011430
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -24,8 +24,8 @@ public class AnimatorParameters
 
 
     //BossDragonAnimationParameters
-    public static int var_isLowHpID;
-    private static string var_isLowHp = "isLowHp";
+    //public static int var_isLowHpID;
+    //private static string var_isLowHp = "isLowHp";
     public static int var_isAttack1_ID;
     private static string var_isFlameAttack = "attack1";
     public static int var_isGetHitID;
@@ -58,10 +58,10 @@ public class AnimatorParameters
 
 
         //Enemy
-        var_isLowHpID = Animator.StringToHash(var_isLowHp);
+        //var_isLowHpID = Animator.StringToHash(var_isLowHp);
         var_isAttack1_ID = Animator.StringToHash(var_isFlameAttack);
-        var_isGetHitID = Animator.StringToHash(var_isGetHit);
         var_isAttack2_ID = Animator.StringToHash(var_tailAttack);
+        var_isGetHitID = Animator.StringToHash(var_isGetHit);
         state_attackType2_ID = Animator.StringToHash(state_attackType2);
         state_attackType1_ID = Animator.StringToHash(state_attackType1);
         state_attackType3_ID = Animator.StringToHash(state_attackType3);

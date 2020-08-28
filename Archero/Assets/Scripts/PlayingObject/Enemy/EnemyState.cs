@@ -31,13 +31,13 @@ public class EnemyState : State
             animator.SetBool(AnimatorParameters.var_isGetHitID, value);
         }
     }
-    protected bool isLowHp;
-    public bool IsLowHP
-    {
-        set
-        {
-            isLowHp = value;
-            animator.SetBool(AnimatorParameters.var_isLowHpID, value);
-        }
-    }
+    //protected bool isLowHp;
+    //public bool IsLowHP
+    //{
+    //    set
+    //    {
+    //        isLowHp = value;
+    //        animator.SetBool(AnimatorParameters.var_isLowHpID, value);
+    //    }
+    //}
 }
