@@ -7,7 +7,9 @@ public class GoldCoinBehavior : BaseMonoBehaviour
 
     protected static PlayerInfo player;
     protected static ExperiencePoint playerExperience;
+    protected static Money playerMoney;
     [SerializeField] protected float expPoint = 5;
+    [SerializeField] protected int goldDrop = 100;
     [SerializeField] protected float maxSpeed = 20f;
     protected float speed = 0f;
     public Rigidbody rigidbody;
@@ -21,6 +23,7 @@ public class GoldCoinBehavior : BaseMonoBehaviour
         {
             player = GameManager.instance.player;
             playerExperience = player.experience;
+            playerMoney = player.money;
         }
     }
 
@@ -32,6 +35,7 @@ public class GoldCoinBehavior : BaseMonoBehaviour
             if (direction.magnitude <= 1)
             {
                 playerExperience.AddExp(expPoint);
+                playerMoney.AddGold(goldDrop);
                 gameObject.SetActive(false);
                 canMoving = false;
                 speed = 0f;

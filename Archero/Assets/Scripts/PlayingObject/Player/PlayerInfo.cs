@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerInfo : LivingObjectInfo
 {
     public ExperiencePoint experience;
+    public Money money;
 
     public override void Awake()
     {

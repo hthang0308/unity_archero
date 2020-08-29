@@ -348,7 +348,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -14}
+  m_AnchoredPosition: {x: 0, y: -97}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &650666566218355858
@@ -1347,6 +1347,7 @@ GameObject:
   - component: {fileID: 90467286787917284}
   - component: {fileID: 1120058431487167189}
   - component: {fileID: 8743588562877781739}
+  - component: {fileID: 9200196201081665440}
   m_Layer: 13
   m_Name: PolyartCharacter
   m_TagString: Untagged
@@ -1447,6 +1448,7 @@ MonoBehaviour:
   status: {fileID: 90467286787917311}
   state: {fileID: 90467286787917284}
   experience: {fileID: 90467286787917304}
+  money: {fileID: 9200196201081665440}
 --- !u!114 &90467286787917309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1567,6 +1569,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curAttackStyle: {fileID: 1120058431487167189}
   playerState: {fileID: 90467286787917284}
+--- !u!114 &9200196201081665440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7162757382900038319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 329094d779454ba40a851fff4eba8f8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  money: 0
+  moneyBar: {fileID: 0}
 --- !u!1 &7162757382900038321
 GameObject:
   m_ObjectHideFlags: 0

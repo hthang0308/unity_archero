@@ -18,8 +18,7 @@ public class MapManager : MonoBehaviour
     public CameraControl cameraControl;
     [SerializeField] protected GameObject changingMapCanvas;
 
-    //public GameObject experienceBar;
-    //public HealthBarUI bossHpBar;
+    [SerializeField] GameObject endGamePanel;
 
     public void Awake()
     {
@@ -30,6 +29,11 @@ public class MapManager : MonoBehaviour
     {
         if (curMap != null)
             Destroy(curMap.gameObject);
+        if (mapInit==null)
+        {
+            Debug.Log("bug");
+            return;
+        }
         curMap = Instantiate(mapInit);
         GameManager.instance.enemies = curMap.enemies;
         GameManager.instance.player.transform.SetPositionAndRotation(curMap.startingPos.position, Quaternion.identity);
@@ -39,10 +43,10 @@ public class MapManager : MonoBehaviour
 
     public void ChangingMap()
     {
-        if (mapInit == null)
-            return;
         changingMapCanvas.SetActive(true);
+        if (mapInit == null)
+        {
+            endGamePanel.SetActive(true);
+        }
     }
-
-
 }

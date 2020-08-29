@@ -878,7 +878,7 @@ MonoBehaviour:
   hP: 0
   maxHP: 5000
   isDead: 0
-  expOnDeath: 30
+  expOnDeath: 5
   enemyInfo: {fileID: 1491243206}
 --- !u!114 &7451134623633610810
 MonoBehaviour:
