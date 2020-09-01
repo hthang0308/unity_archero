@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Equipment Data/Cloth")]
@@ -11,12 +13,16 @@ public class ClothData : EquipmentBaseData
     public int HP { get => hP; }
     public float Speed { get => speed; }
 
+    public ClothData()
+    {
+        type = Type.CLOTH;
+    }
+
     public override EquipmentBaseData Equip()
     {
         EquipmentSlot curWeapon = CurrentEquipment.instance.cloth;
-        curWeapon.icon.sprite = this.Icon;
-        EquipmentBaseData result = curWeapon.equipment;
-        curWeapon.equipment = this;
+        EquipmentBaseData result = curWeapon.Equipment;
+        curWeapon.Equipment = this;
         return result;
     }
 
@@ -26,4 +32,6 @@ public class ClothData : EquipmentBaseData
         player.health.maxHP += hP;
         player.movement.maxSpeed += speed;
     }
+
+
 }

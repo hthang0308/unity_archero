@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ccd60ebd7d2b714e8c301038299386a, type: 3}
   m_Name: BearRing
   m_EditorClassIdentifier: 
+  type: 2
   icon: {fileID: 21300000, guid: 0773e016654be9b48ab83d2cc2719dee, type: 3}
   hP: 50
   atk: 5

@@ -8,12 +8,16 @@ public class RingData : EquipmentBaseData
     [SerializeField] protected int hP = 10;
     [SerializeField] protected float atk = 10;
 
+    public RingData()
+    {
+        type = Type.RING;
+    }
+
     public override EquipmentBaseData Equip()
     {
         EquipmentSlot curWeapon = CurrentEquipment.instance.ring;
-        curWeapon.icon.sprite = this.Icon;
-        EquipmentBaseData result = curWeapon.equipment;
-        curWeapon.equipment = this;
+        EquipmentBaseData result = curWeapon.Equipment;
+        curWeapon.Equipment = this;
         return result;
     }
 
@@ -25,4 +29,5 @@ public class RingData : EquipmentBaseData
         player.health.hP += hP;
         player.health.maxHP += hP;
     }
+
 }

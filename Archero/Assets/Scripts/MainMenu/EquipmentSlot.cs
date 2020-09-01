@@ -6,7 +6,16 @@ using UnityEngine.UI;
 public class EquipmentSlot : MonoBehaviour
 {
     public Image icon;
-    public EquipmentBaseData equipment;
+    [SerializeField] protected EquipmentBaseData equipment;
+
+    public EquipmentBaseData Equipment { get => equipment;
+        set
+        {
+            equipment = value;
+            if (equipment != null)
+                icon.sprite = equipment.Icon;
+        }
+    }
 
     public void Awake()
     {

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96c9b49cf386dd3409ac157c3d39d5d9, type: 3}
   m_Name: DeathScythe
   m_EditorClassIdentifier: 
+  type: 4
   icon: {fileID: 21300000, guid: bf8c9193308ceaf4db9e78d4afddfa43, type: 3}
   atk: 15
   speedAtk: 0
