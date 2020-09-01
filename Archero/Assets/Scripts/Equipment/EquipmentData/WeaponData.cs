@@ -8,15 +8,19 @@ public class WeaponData : EquipmentBaseData
     [SerializeField] protected float atk = 10;
     [SerializeField] protected float speedAtk = 1f;
 
+    public WeaponData()
+    {
+        type = Type.WEAPON;
+    }
+
     public float Atk { get => atk; }
     public float SpeedAtk { get => speedAtk; }
 
     public override EquipmentBaseData Equip()
     {
         EquipmentSlot curWeapon = CurrentEquipment.instance.weapon;
-        curWeapon.icon.sprite = this.Icon;
-        EquipmentBaseData result = curWeapon.equipment;
-        curWeapon.equipment = this;
+        EquipmentBaseData result = curWeapon.Equipment;
+        curWeapon.Equipment = this;
         return result;
     }
     public override void Affect(PlayerInfo player)
@@ -26,4 +30,5 @@ public class WeaponData : EquipmentBaseData
         playerAttack.speed += speedAtk;
         
     }
+
 }
