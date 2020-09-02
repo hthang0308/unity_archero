@@ -7,11 +7,11 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public GameManager()
     {
-        if (instance == null)
-        {
+        //if (instance == null)
+        //{
             instance = this;
             AnimatorParameters.Init();
-        }
+        //}
     }
 
     

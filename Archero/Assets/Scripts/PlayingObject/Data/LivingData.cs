@@ -1,0 +1,29 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class LivingData : ScriptableObject
+{
+    [Header("Health")]
+    [SerializeField] private float maxHP = 100f;
+    //enemy - exp on death
+    [Header("Attack")]
+    [Space(20)]
+    [SerializeField] private int delayNextAttack = 3;
+    [SerializeField] private float speedBullet = 10f;
+    [SerializeField] private float atkPoint = 5f;
+    [SerializeField] List<EffectBaseData> effectDatas = new List<EffectBaseData>();
+    //TankMovement
+    [Header("Movement")]
+    [Space(20)]
+    [SerializeField] private float speed = 5f;
+
+
+    public float MaxHP { get => maxHP; }
+    public int DelayNextAttack { get => delayNextAttack; }
+
+    public float SpeedBullet { get => speedBullet; }
+    public float Speed { get => speed; }
+    public float AtkPoint { get => atkPoint; }
+    public List<EffectBaseData> EffectDatas { get => effectDatas; }
+}

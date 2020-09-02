@@ -13,11 +13,10 @@ public class ItemManager : MonoBehaviour
 
     public ItemManager()
     {
-        if (instance == null)
-        {
+        //if (instance == null)
+        //{
             instance = this;
-            
-        }
+        //}
     }
 
     public void Awake()

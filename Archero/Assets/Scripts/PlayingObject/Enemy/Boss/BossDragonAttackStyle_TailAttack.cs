@@ -14,7 +14,6 @@ public class BossDragonAttackStyle_TailAttack : AttackStyleBase
     [SerializeField] protected float[] angle;
     [SerializeField] float durationRunning = 0.5f;
     [SerializeField] float durationTailAttack = 0.5f;
-    [SerializeField] float atkPoint = 10f;
     [SerializeField] float radiusExplosion = 2f;
 
     ExplosionDamageSource explosion;
@@ -26,7 +25,7 @@ public class BossDragonAttackStyle_TailAttack : AttackStyleBase
         base.OnEnable();
         hashState = AnimatorParameters.state_attackType2_ID;
         explosion = Instantiate(explosionPrefab);
-        explosion.SetUp(atkPoint, radiusExplosion);
+        explosion.SetUp(atkPoint, radiusExplosion, effectDatas);
         state.Attack2 = 1;
     }
     protected override void Attacking()

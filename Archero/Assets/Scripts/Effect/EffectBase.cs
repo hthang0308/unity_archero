@@ -30,7 +30,11 @@ public class EffectBase : IEquatable<EffectBase>
     protected float countDownDuration;
     public bool deleted = false;
 
-    protected Type type;
+    //them particle
+    protected ParticleSystem particle;
+
+    //sua type thanh public
+    public Type type;
     protected Behavior behavior;
 
     #region constructor
@@ -69,6 +73,9 @@ public class EffectBase : IEquatable<EffectBase>
                 int tmp = targetEffects.IndexOf(this);
                 if (tmp != -1)
                 {
+                    //
+                    this.particle = targetEffects[tmp].particle;
+                    //
                     targetEffects[tmp] = this;
                     return false;
                 }
@@ -79,7 +86,9 @@ public class EffectBase : IEquatable<EffectBase>
 
         return true;
     }
-
+    public virtual void FirstAffect(LivingObjectInfo target)
+    {
+    }
     //Need to call when is removed
     public virtual void OnDisable(LivingObjectInfo target)
     {

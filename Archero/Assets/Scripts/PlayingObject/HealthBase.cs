@@ -24,7 +24,7 @@ public class HealthBase : BaseMonoBehaviour
     //    healthBarUI.SetHealthUI(hP/maxHP);
     //}
 
-    public void TakeDmage(float dmg)
+    public virtual void TakeDmage(float dmg)
     {
         //there is a shield
         if (shield > 0f)
@@ -50,7 +50,4 @@ public class HealthBase : BaseMonoBehaviour
         isDead = true;
         gameObject.SetActive(false);
     }
-
-    
-
 }

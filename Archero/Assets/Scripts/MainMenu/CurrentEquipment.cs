@@ -11,7 +11,7 @@ public class CurrentEquipment : MonoBehaviour
 
     public CurrentEquipment()
     {
-        if (instance == null)
+        //if (instance == null)
             instance = this;
     }
 

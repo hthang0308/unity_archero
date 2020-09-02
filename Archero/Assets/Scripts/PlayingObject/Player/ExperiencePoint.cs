@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,18 +10,21 @@ public class ExperiencePoint : BaseMonoBehaviour
     [SerializeField] public float levelExp = 40f;
     [SerializeField] protected GameObject slotMachine;
     [SerializeField] protected Slider expBar;
+
+    [SerializeField] TextMeshProUGUI textUI;
+    int level;
     protected float barVelocity;
 
     public override void Awake()
     {
         base.Awake();
         expBar.maxValue = levelExp;
+        level = 1;
     }
 
     public void AddExp(float expPoint)
     {
         exp += expPoint;
-        
     }
 
     public override void UpdateFixed()
@@ -33,6 +37,9 @@ public class ExperiencePoint : BaseMonoBehaviour
             slotMachine.SetActive(true);
             expBar.value = exp;
             levelExp *= 1.1f;
+
+            level++;
+            textUI.text = "Lv." + level;
         }
     }
 }

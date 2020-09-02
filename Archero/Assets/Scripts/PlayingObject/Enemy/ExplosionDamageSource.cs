@@ -32,10 +32,11 @@ public class ExplosionDamageSource : DamageSourceBase
         currentExplosion.audioSource.Play();
         gameObject.SetActive(false);
     }
-    public void SetUp(float inAtkPoint, float inRadiusExplosion)
+    public void SetUp(float inAtkPoint, float inRadiusExplosion, List<EffectBaseData> inEffectDatas)
     {
         atkPoint = inAtkPoint;
         radiusExplosion = inRadiusExplosion;
+        effectDatas = inEffectDatas;
     }
     private void OnDrawGizmos()
     {

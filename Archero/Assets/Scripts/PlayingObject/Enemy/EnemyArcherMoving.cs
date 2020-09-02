@@ -8,11 +8,10 @@ using UnityEngine.UIElements;
 
 public class EnemyArcherMoving : EnemyMovingBase
 {
-    [SerializeField] float rangeMoving = 10f;
     float x, z;
     Vector3 destination;
     NavMeshPath path;
-    public void FindAreaToShoot()
+    public void FindAreaToShoot(float rangeMoving)
     {
         while (true)
         {

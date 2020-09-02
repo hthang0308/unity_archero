@@ -4,25 +4,36 @@ using UnityEngine;
 
 public class BossDragonHealth : EnemyHealth
 {
-    //[SerializeField] BossDragonAttackControl atkControl;
-    //public override void UpdateNormal()
-    //{
-    //    if (hP / maxHP < 0.6f)
-    //    {
-    //        Debug.Log("isLowHP");
-    //        atkControl.IsLowHP = true;
-    //    }
-    //}
-    //protected override void OnEnable()
-    //{
-    //    base.OnEnable();
-    //    healthBarUI = MapManager.instance.bossHpBar;
-    //    MapManager.instance.experienceBar.SetActive(false);
-    //    MapManager.instance.bossHpBar.gameObject.SetActive(true);
-    //}
-    //private void OnDisable()
-    //{
-    //    MapManager.instance.experienceBar.SetActive(true);
-    //    MapManager.instance.bossHpBar.gameObject.SetActive(false);
-    //}
+    [SerializeField] BoxCollider boxCollider;
+    [SerializeField] AttackControlBase atkControl;
+    public EnemyState state;
+    public float minGetHit = 20f;
+    public override void TakeDmage(float dmg)
+    {
+        base.TakeDmage(dmg);
+        if (dmg > minGetHit)
+        {
+            state.IsGetHit = true;
+            StartCoroutine(WaitForHitAnimation());
+        }
+            
+    }
+    protected override void OnDeath()
+    {
+        state.IsDead = true;
+        StartCoroutine(WaitForDeathAnimation());
+    }
+    IEnumerator WaitForDeathAnimation()
+    {
+        boxCollider.enabled = false;
+        atkControl.enabled = false;
+        yield return new WaitForSeconds(3f);
+        base.OnDeath();
+    }
+    IEnumerator WaitForHitAnimation()
+    {
+        yield return new WaitForSeconds(0.1f);
+        state.IsGetHit = false;
+    }
+
 }

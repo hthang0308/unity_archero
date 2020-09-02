@@ -10,7 +10,7 @@ public class GoldCoinPool : BaseMonoBehaviour
 
     public GoldCoinPool()
     {
-        if (instance == null)
+        //if (instance == null)
             instance = this;
     }
 

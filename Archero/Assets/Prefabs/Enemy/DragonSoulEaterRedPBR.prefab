@@ -836,6 +836,7 @@ MonoBehaviour:
   atkPoint: 10
   effectDatas:
   - {fileID: 11400000, guid: 09fb14312fc87dd4b98ec46a0f7a2acc, type: 2}
+  attackPerTime: 3
 --- !u!114 &3529529047955459493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -876,10 +877,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBarUI: {fileID: 5414087234991375492}
   hP: 0
-  maxHP: 5000
+  maxHP: 2000
   isDead: 0
-  expOnDeath: 5
+  expOnDeath: 3
   enemyInfo: {fileID: 1491243206}
+  boxCollider: {fileID: 5901962638198011663}
+  atkControl: {fileID: -8365551846869041129}
+  state: {fileID: 6939618312309282650}
+  minGetHit: 20
 --- !u!114 &7451134623633610810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2424,6 +2429,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316378976379982232, guid: b184b6c2b23bfd54e975f6d25e7c4b39,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316378976379982232, guid: b184b6c2b23bfd54e975f6d25e7c4b39,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316378976379982232, guid: b184b6c2b23bfd54e975f6d25e7c4b39,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b184b6c2b23bfd54e975f6d25e7c4b39, type: 3}

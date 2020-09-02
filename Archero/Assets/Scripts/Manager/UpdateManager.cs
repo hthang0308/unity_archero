@@ -13,11 +13,11 @@ public class UpdateManager : MonoBehaviour
 
     public UpdateManager()
     {
-        if (instance == null)
-        {
+        //if (instance == null)
+        //{
             instance = this;
             this.behaviours = new BaseMonoBehaviour[maxBehaviors];
-        }
+        //}
     }
 
     #region Add & Remove

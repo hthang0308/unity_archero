@@ -17,3 +17,4 @@ MonoBehaviour:
   delayPerAffect: 0.2
   duration: 3.5
   damage: 5
+  particle: {fileID: 19800006, guid: ba1b9e2ea89c3ed46b0e18f4e6be1e1e, type: 3}

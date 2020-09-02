@@ -1,21 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 
 public class EnemyArcherAttackStyle : AttackStyleBase<LaserDamageSource>
 {
     protected Transform player;
     bool lookAtPlayer = false;
     int countAttack = 0;
-    [SerializeField] float timeMove = 3.5f;
+    public float rangeMoving = 10f;
+    public float timeMove = 3.5f;
     [SerializeField] EnemyArcherMoving moving;
     [SerializeField] EnemyState state;
     int attackPerTime = 3;
     [Header("Enemy Arrow Set Up")]
-    [SerializeField] float distance = 10f;
-    [SerializeField] float speed = 10f;
-    [SerializeField] float atkPoint = 10f;
-    [SerializeField] public List<EffectBaseData> effectDatas = new List<EffectBaseData>();
+    public float distance = 10f;
+    public float speed = 10f;
     protected int hashState;
     public override void Awake()
     {
@@ -59,7 +59,7 @@ public class EnemyArcherAttackStyle : AttackStyleBase<LaserDamageSource>
             countAttack = 0;
             countDownDelayNextAttack = timeMove;
             moving.IsMoving = true;
-            moving.FindAreaToShoot();
+            moving.FindAreaToShoot(rangeMoving);
         }
     }
 }

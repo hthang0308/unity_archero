@@ -6,8 +6,8 @@ using UnityEngine.UIElements;
 
 public class EnemyShellMoving : EnemyMovingBase
 {
-    protected float delayMove = 0.5f;
-    protected float durationMove = 0.5f;
+    public float delayMove = 0.5f;
+    public float durationMove = 0.5f;
     protected float countDelayMove = 0f;
     protected bool inDurationMoving = false;
     public override void UpdateNormal()

@@ -7,10 +7,10 @@ public class MapManager : MonoBehaviour
     public static MapManager instance;
     public MapManager()
     {
-        if (instance == null)
-        {
+        //if (instance == null)
+        //{
             instance = this;
-        }
+        //}
     }
     
     [SerializeField] protected MapInfo mapInit;
@@ -19,6 +19,7 @@ public class MapManager : MonoBehaviour
     [SerializeField] protected GameObject changingMapCanvas;
 
     [SerializeField] GameObject endGamePanel;
+    [SerializeField] GameObject losePanel;
 
     public void Awake()
     {
@@ -31,7 +32,6 @@ public class MapManager : MonoBehaviour
             Destroy(curMap.gameObject);
         if (mapInit==null)
         {
-            Debug.Log("bug");
             return;
         }
         curMap = Instantiate(mapInit);
@@ -48,5 +48,10 @@ public class MapManager : MonoBehaviour
         {
             endGamePanel.SetActive(true);
         }
+    }
+    public void LosePanel()
+    {
+        changingMapCanvas.SetActive(true);
+        losePanel.SetActive(true);
     }
 }

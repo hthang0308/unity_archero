@@ -8,8 +8,10 @@ public class DamagePerSecondData : EffectBaseData
     [Header("Damage Info")]
     [Space(20)]
     [SerializeField] protected float damage;
+    //[SerializeField] ParticleSystem particle;
 
     public float Damage { get => damage; }
+    //public ParticleSystem Particle { get => particle; }
 
     public override EffectBase CreateEffect()
     {

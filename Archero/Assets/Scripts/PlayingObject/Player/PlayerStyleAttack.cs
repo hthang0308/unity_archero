@@ -9,33 +9,30 @@ public class PlayerStyleAttack : AttackStyleBase<ArrowDamageSource>
     [SerializeField] protected PlayerState playerAnimator;
     protected int hashState;
 
-    [SerializeField] protected float startingDelay = 0.1f;
+    public float startingDelay = 0.1f;
     protected float countDownStartingDelay;
 
-    [SerializeField] protected float delayNextShot = 0.8f;
+    //trung voi delaynextAttack nen bo ra
     protected float countDownDelayNextShot;
 
-    [SerializeField] public int numberShots = 1; 
+    public int numberShots = 1; 
     protected int countDownNumberShots;
 
     //Front
-    [SerializeField] public int frontShot = 1;
-    [SerializeField] protected float frontShotDeltaPos = 5f;
+    public int frontShot = 1;
+    public float frontShotDeltaPos = 5f;
 
     //Diagonal
-    [SerializeField] public int diagonalShot = 0;
-    [SerializeField] protected float diagonalShotAngle = 10f;
+    public int diagonalShot = 0;
+    public float diagonalShotAngle = 10f;
 
     //Arrow Set Up
     [Header("Arrow Set Up")]
     [Space(20)]
-    [SerializeField] public float atkPoint = 10f;
     [SerializeField] public float distance = 20f;
     [SerializeField] public float speed = 0.8f;
     [SerializeField] public bool penetrate = false;
     [SerializeField] public bool bouncingWall = true;
-    [HideInInspector] public List<EffectBaseData> effectDatas = new List<EffectBaseData>();
-
 
     public override void OnEnable()
     {
@@ -104,7 +101,7 @@ public class PlayerStyleAttack : AttackStyleBase<ArrowDamageSource>
         }
         else
         {
-            countDownDelayNextShot = delayNextShot;
+            countDownDelayNextShot = delayNextAttack;
             
 
         }

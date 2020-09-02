@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,7 +26,11 @@ public class Status : BaseMonoBehaviour
     public void AddEffect(EffectBase effect)
     {
         if (effect.OnEnable(objectInfo))
+        {
+            effect.FirstAffect(objectInfo);
             effects.Add(effect);
+        }
+            
     }
 
     public void RemoveEffect(EffectBase effect)

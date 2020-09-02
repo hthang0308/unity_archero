@@ -16,6 +16,7 @@ public class LivingObjectInfo : BaseMonoBehaviour, IEquatable<LivingObjectInfo>
         base.Awake();
         id = idInit;
         idInit = (idInit % (maxID - 1)) + 1;
+        SetUp();
     }
 
     public HealthBase health;
@@ -24,11 +25,14 @@ public class LivingObjectInfo : BaseMonoBehaviour, IEquatable<LivingObjectInfo>
     public DamageSourceBase dmgSource;
     public Status status;
     public State state;
-
+    public LivingData database;
     public bool Equals(LivingObjectInfo other)
     {
         if (id == other.id)
             return true;
         return false;
+    }
+    public virtual void SetUp()
+    {
     }
 }
