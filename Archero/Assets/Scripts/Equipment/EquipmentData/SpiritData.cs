@@ -5,12 +5,17 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Equipment Data/Spirit")]
 public class SpiritData : EquipmentBaseData
 {
+    public SpiritData()
+    {
+        type = Type.SPIRIT;
+    }
+
     public override EquipmentBaseData Equip()
     {
         EquipmentSlot curWeapon = CurrentEquipment.instance.spirit;
-        curWeapon.icon.sprite = this.Icon;
-        EquipmentBaseData result = curWeapon.equipment;
-        curWeapon.equipment = this;
+        EquipmentBaseData result = curWeapon.Equipment;
+        curWeapon.Equipment = this;
         return result;
     }
+
 }

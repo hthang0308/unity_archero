@@ -25,14 +25,14 @@ public class GameManager : MonoBehaviour
         CurrentEquipment equipments = CurrentEquipment.instance;
         if (equipments)
         {
-            if (equipments.cloth.equipment)
-                equipments.cloth.equipment.Affect(player);
-            if (equipments.weapon.equipment)
-                equipments.weapon.equipment.Affect(player);
-            if (equipments.spirit.equipment)
-                equipments.spirit.equipment.Affect(player);
-            if (equipments.ring.equipment)
-                equipments.ring.equipment.Affect(player);
+            if (equipments.cloth.Equipment)
+                equipments.cloth.Equipment.Affect(player);
+            if (equipments.weapon.Equipment)
+                equipments.weapon.Equipment.Affect(player);
+            if (equipments.spirit.Equipment)
+                equipments.spirit.Equipment.Affect(player);
+            if (equipments.ring.Equipment)
+                equipments.ring.Equipment.Affect(player);
             Destroy(equipments.parentGameObject);
             equipments = null;
         }
