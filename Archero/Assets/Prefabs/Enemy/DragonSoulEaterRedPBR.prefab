@@ -695,7 +695,7 @@ GameObject:
   - component: {fileID: 971994672}
   - component: {fileID: 971994671}
   - component: {fileID: 5901962638198011663}
-  - component: {fileID: 1491243206}
+  - component: {fileID: -8293256192013829800}
   - component: {fileID: -8365551846869041129}
   - component: {fileID: -1932829124276042747}
   - component: {fileID: -5935371122399011430}
@@ -761,7 +761,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.8048837, y: 9.455898, z: 4.2055664}
   m_Center: {x: -0.12365019, y: 4.883874, z: -0.14423561}
---- !u!114 &1491243206
+--- !u!114 &-8293256192013829800
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -770,16 +770,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 971994670}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bc15e4791aab6041b02c939e58c80f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 78bf3e7881348864eaae33188b2d5960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
   health: {fileID: -6713968155920713823}
   attackBase: {fileID: -1932829124276042747}
   movement: {fileID: 7451134623633610810}
-  dmgSource: {fileID: 0}
+  dmgSource: {fileID: -5910992297933327457, guid: 8f18e1d8c46c51f429429815455062fc,
+    type: 3}
   status: {fileID: 698538153896148516}
   state: {fileID: 6939618312309282650}
+  database: {fileID: 11400000, guid: 8499c3bf36b704f41b0d79408f4bda22, type: 2}
+  atkControl: {fileID: -8365551846869041129}
+  dmgSource2: {fileID: 1904769467165085089, guid: df6f5743926e0ef4ab059ed8710449aa,
+    type: 3}
 --- !u!114 &-8365551846869041129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -831,11 +836,6 @@ MonoBehaviour:
   - -30
   - 0
   - 30
-  distance: 10
-  speed: 10
-  atkPoint: 10
-  effectDatas:
-  - {fileID: 11400000, guid: 09fb14312fc87dd4b98ec46a0f7a2acc, type: 2}
   attackPerTime: 3
 --- !u!114 &3529529047955459493
 MonoBehaviour:
@@ -858,11 +858,9 @@ MonoBehaviour:
     m_Bits: 8192
   explosionPrefab: {fileID: 1904769467165085089, guid: df6f5743926e0ef4ab059ed8710449aa,
     type: 3}
-  angle: []
   durationRunning: 0.5
   durationTailAttack: 0.5
-  atkPoint: 30
-  radiusExplosion: 4
+  attackPerTime: 3
 --- !u!114 &-6713968155920713823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -880,7 +878,7 @@ MonoBehaviour:
   maxHP: 2000
   isDead: 0
   expOnDeath: 3
-  enemyInfo: {fileID: 1491243206}
+  enemyInfo: {fileID: -8293256192013829800}
   boxCollider: {fileID: 5901962638198011663}
   atkControl: {fileID: -8365551846869041129}
   state: {fileID: 6939618312309282650}
@@ -927,7 +925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effects: []
-  objectInfo: {fileID: 1491243206}
+  objectInfo: {fileID: -8293256192013829800}
 --- !u!1 &974828130
 GameObject:
   m_ObjectHideFlags: 0

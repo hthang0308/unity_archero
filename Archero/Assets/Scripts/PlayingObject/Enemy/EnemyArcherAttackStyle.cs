@@ -13,15 +13,15 @@ public class EnemyArcherAttackStyle : AttackStyleBase<LaserDamageSource>
     [SerializeField] EnemyArcherMoving moving;
     [SerializeField] EnemyState state;
     int attackPerTime = 3;
-    [Header("Enemy Arrow Set Up")]
-    public float distance = 10f;
-    public float speed = 10f;
+    //[Header("Enemy Arrow Set Up")]
+    //public float distance = 10f;
+    //public float speed = 10f;
     protected int hashState;
-    public override void Awake()
-    {
-        dmgPrefab.SetUp(distance, speed, atkPoint, effectDatas);
-        base.Awake();
-    }
+    //public override void Awake()
+    //{
+    //    dmgPrefab.SetUp(distance, speed, atkPoint, effectDatas);
+    //    base.Awake();
+    //}
     public override void OnEnable()
     {
         base.OnEnable();

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyHealth : HealthBase
 {
     private ExperiencePoint playerExp;
-    [SerializeField] protected int expOnDeath = 3;
+    public int expOnDeath = 3;
     [SerializeField] protected LivingObjectInfo enemyInfo;
 
     protected override void OnEnable()

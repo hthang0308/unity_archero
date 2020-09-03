@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GoldCoinBehavior : BaseMonoBehaviour
 {
-
     protected static PlayerInfo player;
     protected static ExperiencePoint playerExperience;
     protected static Money playerMoney;

@@ -9,8 +9,7 @@ public class LivingData : ScriptableObject
     //enemy - exp on death
     [Header("Attack")]
     [Space(20)]
-    [SerializeField] private int delayNextAttack = 3;
-    [SerializeField] private float speedBullet = 10f;
+    [SerializeField] private float delayNextAttack = 3;
     [SerializeField] private float atkPoint = 5f;
     [SerializeField] List<EffectBaseData> effectDatas = new List<EffectBaseData>();
     //TankMovement
@@ -20,9 +19,7 @@ public class LivingData : ScriptableObject
 
 
     public float MaxHP { get => maxHP; }
-    public int DelayNextAttack { get => delayNextAttack; }
-
-    public float SpeedBullet { get => speedBullet; }
+    public float DelayNextAttack { get => delayNextAttack; }
     public float Speed { get => speed; }
     public float AtkPoint { get => atkPoint; }
     public List<EffectBaseData> EffectDatas { get => effectDatas; }

@@ -6,12 +6,11 @@ public class EnemyShellInfo : LivingObjectInfo
 {
     public override void SetUp()
     {
-        EnemyShellMoving mov = movement as EnemyShellMoving;
-        //diem chung
-        health.maxHP = database.MaxHP;
-        mov.delayMove = database.DelayNextAttack;
-        CollisionDamageSource collisionDmgSource = dmgSource as CollisionDamageSource;
-        collisionDmgSource.atkPoint = database.AtkPoint;
-        collisionDmgSource.effectDatas = database.EffectDatas;
+        base.SetUp();
+        EnemyData data = database as EnemyData;
+        EnemyShellMoving shellMoving = movement as EnemyShellMoving;
+        shellMoving.delayMove = database.DelayNextAttack;
+        EnemyHealth healthEnemy = health as EnemyHealth;
+        healthEnemy.expOnDeath = data.ExpOnDeath;
     }
 }

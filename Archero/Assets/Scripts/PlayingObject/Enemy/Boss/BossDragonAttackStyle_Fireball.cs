@@ -6,20 +6,19 @@ public class BossDragonAttackStyle_Fireball : AttackStyleBase<FireballDamageSour
 {
     protected Transform player;
     [SerializeField] EnemyState state;
-    [Header("Fireball Set Up")]
-    [SerializeField] protected float[] angle;
-    [SerializeField] float distance = 10f;
-    [SerializeField] float speed = 10f;
+    [HideInInspector] public float[] angle;
+    //[SerializeField] float distance = 10f;
+    //[SerializeField] float speed = 10f;
     protected int hashState;
 
 
     int countAttack=0;
-    public int attackPerTime = 3;
-    public override void Awake()
-    {
-        dmgPrefab.SetUp(distance, speed, atkPoint, effectDatas);
-        base.Awake();
-    }
+    [HideInInspector] public int attackPerTime = 3;
+    //public override void Awake()
+    //{
+    //    dmgPrefab.SetUp(distance, speed, atkPoint, effectDatas);
+    //    base.Awake();
+    //}
     public override void OnEnable()
     {
         base.OnEnable();

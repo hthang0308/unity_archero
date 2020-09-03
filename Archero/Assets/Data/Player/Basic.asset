@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b44fba90bcc3745b1f97a06117453f, type: 3}
+  m_Name: Basic
+  m_EditorClassIdentifier: 
+  maxHP: 200
+  delayNextAttack: 0.1
+  atkPoint: 40
+  effectDatas: []
+  speed: 8
+  expLvUp: 30
+  startingDelay: 0.1
+  numberShots: 1
+  frontShot: 1
+  frontShotDeltaPos: 0.5
+  diagonalShot: 0
+  diagonalShotAngle: 10
+  distance: 20
+  speedBullet: 20

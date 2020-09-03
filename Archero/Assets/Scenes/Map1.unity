@@ -107,15 +107,15 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 2
-    agentHeight: 5
+    agentRadius: 0.5
+    agentHeight: 2
     agentSlope: 45
     agentClimb: 1
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.6666667
+    cellSize: 0.16666667
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 1
@@ -7002,7 +7002,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e953922ab64174cb243683340b628e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapInit: {fileID: 4449191200003035530, guid: e2211e8583da7ec41940246afe3c66c3, type: 3}
+  mapInit: {fileID: 2756728225580122777, guid: 5380071fd46869040a0544492fdc18df, type: 3}
+  difficulty: {fileID: 8711137653352246562, guid: 5380071fd46869040a0544492fdc18df,
+    type: 3}
   curMap: {fileID: 0}
   cameraControl: {fileID: 1392662073}
   changingMapCanvas: {fileID: 2072214175}
@@ -7596,11 +7598,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -4891015439405131954, guid: fed267de7795c0a40a2999ac85695a2b,
-        type: 3}
-      propertyPath: maxHP
-      value: 500
-      objectReference: {fileID: 0}
     - target: {fileID: 90467286787917304, guid: fed267de7795c0a40a2999ac85695a2b,
         type: 3}
       propertyPath: slotMachine

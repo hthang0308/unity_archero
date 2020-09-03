@@ -5,11 +5,9 @@ using UnityEngine;
 public class AttackStyleBase : BaseMonoBehaviour
 {
     protected bool isAttack=false;
-    public float atkPoint = 5f;
     [SerializeField] public float delayNextAttack = 3.0f;
     [SerializeField] protected Transform fireTransform;
     protected float countDownDelayNextAttack;
-    public List<EffectBaseData> effectDatas = new List<EffectBaseData>();
 
     public virtual void OnEnable()
     {

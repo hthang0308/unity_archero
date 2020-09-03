@@ -119,7 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1424157467555529029}
   - component: {fileID: 446313059003102429}
-  - component: {fileID: 6289850623583489708}
+  - component: {fileID: 4310844987234449975}
   - component: {fileID: 2789767838864862854}
   - component: {fileID: 1646903481174431332}
   - component: {fileID: 1265932723334553328}
@@ -162,7 +162,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.9131107, y: 3.7909555, z: 2.207191}
   m_Center: {x: 0.02851677, y: 2.1784253, z: 0.095140934}
---- !u!114 &6289850623583489708
+--- !u!114 &4310844987234449975
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,16 +171,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1424157467555364747}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bc15e4791aab6041b02c939e58c80f4, type: 3}
+  m_Script: {fileID: 11500000, guid: c4cc13768e2141944a73ce82e9bd36df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
   health: {fileID: 2789767838864862854}
   attackBase: {fileID: 1646903481174431332}
   movement: {fileID: 0}
-  dmgSource: {fileID: 0}
+  dmgSource: {fileID: 6822199684381230797, guid: 6556cd8de246d8c4b89462b91f953588,
+    type: 3}
   status: {fileID: 7561224383918593175}
   state: {fileID: 0}
+  database: {fileID: 11400000, guid: 3115d619cc5032243ba86eb1aa9fb16c, type: 2}
 --- !u!114 &2789767838864862854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,7 +200,7 @@ MonoBehaviour:
   maxHP: 100
   isDead: 0
   expOnDeath: 3
-  enemyInfo: {fileID: 6289850623583489708}
+  enemyInfo: {fileID: 4310844987234449975}
 --- !u!114 &1646903481174431332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,6 +230,7 @@ MonoBehaviour:
   fireTransform: {fileID: 1346876839277857889}
   dmgPrefab: {fileID: 6822199684381230797, guid: 6556cd8de246d8c4b89462b91f953588,
     type: 3}
+  speed: 10
 --- !u!114 &7561224383918593175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effects: []
-  objectInfo: {fileID: 6289850623583489708}
+  objectInfo: {fileID: 4310844987234449975}
 --- !u!1 &1424157467555397313
 GameObject:
   m_ObjectHideFlags: 0

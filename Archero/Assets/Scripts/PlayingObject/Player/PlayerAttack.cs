@@ -24,6 +24,7 @@ public class PlayerAttack : AttackBase
                 {
                     Vector3 curPos = transform.position;
                     lookAtEnemy = enemies[0].transform;
+                    
                     float minDistance = (lookAtEnemy.position - curPos).sqrMagnitude;
 
                     for (int i = 1; i < enemies.Count; i++)

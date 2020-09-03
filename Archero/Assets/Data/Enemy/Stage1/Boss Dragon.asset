@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceda9fcc089614342bbe976322e997d4, type: 3}
+  m_Name: Boss Dragon
+  m_EditorClassIdentifier: 
+  maxHP: 1000
+  delayNextAttack: 2
+  atkPoint: 5
+  effectDatas:
+  - {fileID: 11400000, guid: 09fb14312fc87dd4b98ec46a0f7a2acc, type: 2}
+  speed: 5
+  expOnDeath: 3
+  delayNextAttack1: 3
+  attackPerTime1: 3
+  atkPoint1: 10
+  angle:
+  - -30
+  - 0
+  - 30
+  distance: 30
+  speedBullet: 20
+  delayNextAttack2: 3
+  attackPerTime2: 3
+  atkPoint2: 10
+  radiusExplosion: 2
+  durationRunning: 0.5
+  durationTailAttack: 0.5

@@ -8,14 +8,13 @@ public class EnemyCannonInfo : LivingObjectInfo
     {
         EnemyCannonData data = database as EnemyCannonData;
         EnemyCannonAttackStyle atk = attackBase.CurAttackStyle as EnemyCannonAttackStyle;
-        //diem chung
-        health.maxHP = data.MaxHP;
-        atk.delayNextAttack = data.DelayNextAttack;
+        ExplosionDamageSource explosion = dmgSource as ExplosionDamageSource;
         atk.speed = data.SpeedBullet;
-        atk.atkPoint = data.AtkPoint;
-        atk.effectDatas = data.EffectDatas;
-        movement.maxSpeed = data.Speed;
         //diem rieng
-        atk.explosionRadius = data.ExplosionRadius;
+        explosion.radiusExplosion = data.RadiusExplosion;
+
+        EnemyHealth healthEnemy = health as EnemyHealth;
+        healthEnemy.expOnDeath = data.ExpOnDeath;
+        base.SetUp();
     }
 }

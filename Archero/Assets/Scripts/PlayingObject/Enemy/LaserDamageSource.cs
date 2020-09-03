@@ -9,7 +9,8 @@ public class LaserDamageSource : DamageSourceBase
     [SerializeField] protected TrailRenderer trail;
 
     protected float countDownDistance;
-    protected float speed = 20f;
+    public float speed = 20f;
+    public float maxDistance = 30f;
 
     protected bool disable = false;
     protected RaycastHit hit;
@@ -33,7 +34,7 @@ public class LaserDamageSource : DamageSourceBase
     public virtual void OnEnable()
     {
         disable = false;
-        countDownDistance = 30f;
+        countDownDistance = maxDistance;
     }
 
 
@@ -84,12 +85,5 @@ public class LaserDamageSource : DamageSourceBase
     {
         if (trail!=null)
             trail.Clear();
-    }
-    public virtual void SetUp(float distance, float inSpeed, float inAtkPoint, List<EffectBaseData> inEffectBaseDatas)
-    {
-        countDownDistance = distance;
-        speed = inSpeed;
-        effectDatas = inEffectBaseDatas;
-        atkPoint = inAtkPoint;
     }
 }

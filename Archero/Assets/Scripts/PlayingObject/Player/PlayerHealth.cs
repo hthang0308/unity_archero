@@ -9,4 +9,9 @@ public class PlayerHealth : HealthBase
         base.OnDeath();
         MapManager.instance.LosePanel();
     }
+    public override void TakeDmage(float dmg)
+    {
+        base.TakeDmage(dmg);
+        Debug.Log(hP + "   " + maxHP);
+    }
 }

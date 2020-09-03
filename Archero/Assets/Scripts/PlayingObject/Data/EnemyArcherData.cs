@@ -11,6 +11,8 @@ public class EnemyArcherData : EnemyData
     [SerializeField] float rangeMove = 6f;
     [SerializeField] float timeMove = 3f;
     [SerializeField] float bulletMaxDistance = 10f;
+    [SerializeField] float speedBullet = 10f;
+    public float SpeedBullet { get => speedBullet; }
     public float TimeMove { get => timeMove; }
     public float RangeMove { get => rangeMove; }
     public float BulletMaxDistance { get => bulletMaxDistance; }

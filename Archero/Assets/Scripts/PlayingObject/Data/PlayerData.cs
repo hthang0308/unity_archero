@@ -22,7 +22,8 @@ public class PlayerData : LivingData
     [Header("Arrow Set Up")]
     [Space(20)]
     [SerializeField] protected float distance = 20f;
-
+    [SerializeField] float speedBullet = 10f;
+    public float SpeedBullet { get => speedBullet; }
     public float ExpLvUp { get => expLvUp; }
     public float StartingDelay { get => startingDelay; }
     public int NumberShots { get => numberShots; }

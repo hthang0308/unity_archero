@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class PlayerStyleAttack : AttackStyleBase<ArrowDamageSource>
 {
+    public List<EffectBaseData> effectDatas = new List<EffectBaseData>();
+    public float atkPoint=10f;
+
     [HideInInspector] public Transform enemyLookAt;
     [SerializeField] protected PlayerState playerAnimator;
     protected int hashState;

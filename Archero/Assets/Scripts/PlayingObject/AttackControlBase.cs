@@ -5,7 +5,7 @@ using UnityEngine;
 public class AttackControlBase : BaseMonoBehaviour
 {
     [SerializeField] protected AttackBase attackBase;
-    [SerializeField] protected List<AttackStyleBase> attackStyles;
+    [SerializeField] public List<AttackStyleBase> attackStyles;
     protected int index = -1;
 
     public override void UpdateNormal()

@@ -1604,6 +1604,7 @@ MonoBehaviour:
   dmgSource: {fileID: 0}
   status: {fileID: 90467286787917311}
   state: {fileID: 90467286787917284}
+  database: {fileID: 11400000, guid: 44c2f0db565ddf748be96a66b03ba7cb, type: 2}
   experience: {fileID: 90467286787917304}
   money: {fileID: 9200196201081665440}
 --- !u!114 &90467286787917310
@@ -1683,21 +1684,20 @@ MonoBehaviour:
   delayNextAttack: 0.1
   fireTransform: {fileID: 90467288013979825}
   dmgPrefab: {fileID: 55725499, guid: 3d258ee8ef8b9fd44b63afa18becc45e, type: 3}
+  effectDatas: []
+  atkPoint: 10
   enemyLookAt: {fileID: 0}
   playerAnimator: {fileID: 90467286787917284}
   startingDelay: 0.1
-  delayNextShot: 0.2
   numberShots: 1
   frontShot: 1
   frontShotDeltaPos: 0.5
   diagonalShot: 0
   diagonalShotAngle: 10
-  atkPoint: 10
   distance: 20
   speed: 20
   penetrate: 0
   bouncingWall: 0
-  effectDatas: []
 --- !u!114 &8743588562877781739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1740,7 +1740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBarUI: {fileID: 6823862509053255839}
   hP: 0
-  maxHP: 100
+  maxHP: 500
   isDead: 0
 --- !u!1 &7162757382900038321
 GameObject:

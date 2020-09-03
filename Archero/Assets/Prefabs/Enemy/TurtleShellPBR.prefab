@@ -383,6 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8886134a3664b54996a0de26bdb0a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  atkPoint: 10
   effectDatas: []
 --- !u!1 &1424131905083786
 GameObject:
@@ -809,11 +810,11 @@ GameObject:
   - component: {fileID: 95237074988894122}
   - component: {fileID: 1049519419}
   - component: {fileID: 1049519418}
+  - component: {fileID: 5122188468255456926}
   - component: {fileID: 1049519421}
   - component: {fileID: 1049519422}
   - component: {fileID: 1049519424}
   - component: {fileID: 1049519425}
-  - component: {fileID: 1049519426}
   - component: {fileID: 2294233698360252972}
   m_Layer: 16
   m_Name: TurtleShellPBR
@@ -887,6 +888,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.4421856, z: 1}
   m_Center: {x: 0, y: 0.7210928, z: 0}
+--- !u!114 &5122188468255456926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774625739149480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7714fc461dbe9d4492837194f99c90b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  health: {fileID: 1049519424}
+  attackBase: {fileID: 0}
+  movement: {fileID: 1049519421}
+  dmgSource: {fileID: 903265698}
+  status: {fileID: 1049519425}
+  state: {fileID: 2294233698360252972}
+  database: {fileID: 11400000, guid: 52e3ecf5e51eee74fb6de44fc0314ce8, type: 2}
 --- !u!114 &1049519421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -904,6 +925,8 @@ MonoBehaviour:
   maxSpeed: 5
   direction: {x: 0, y: 0, z: 0}
   _navMeshAgent: {fileID: 1049519422}
+  delayMove: 0.5
+  durationMove: 0.5
 --- !u!195 &1049519422
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -943,7 +966,7 @@ MonoBehaviour:
   maxHP: 200
   isDead: 0
   expOnDeath: 3
-  enemyInfo: {fileID: 1049519426}
+  enemyInfo: {fileID: 5122188468255456926}
 --- !u!114 &1049519425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -957,26 +980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effects: []
-  objectInfo: {fileID: 1049519426}
---- !u!114 &1049519426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1774625739149480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bc15e4791aab6041b02c939e58c80f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 1
-  health: {fileID: 1049519424}
-  attackBase: {fileID: 0}
-  movement: {fileID: 1049519421}
-  dmgSource: {fileID: 903265698}
-  status: {fileID: 1049519425}
-  state: {fileID: 2294233698360252972}
+  objectInfo: {fileID: 5122188468255456926}
 --- !u!114 &2294233698360252972
 MonoBehaviour:
   m_ObjectHideFlags: 0

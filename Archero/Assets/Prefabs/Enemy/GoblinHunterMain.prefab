@@ -1031,11 +1031,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8980390744224071177}
   - component: {fileID: 8980390744216342973}
+  - component: {fileID: -9188282561715485390}
   - component: {fileID: 3023004234467269243}
   - component: {fileID: 8198805922179210626}
-  - component: {fileID: 552058911}
   - component: {fileID: 1879724542417874820}
-  - component: {fileID: 2551758845244253100}
   - component: {fileID: 5958425783444085752}
   - component: {fileID: 7670367056169718938}
   - component: {fileID: 7609168205937253819}
@@ -1086,6 +1085,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-9188282561715485390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8980390744223769135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e7ec91cdb17bd44284926b5dc9c0765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  health: {fileID: 5958425783444085752}
+  attackBase: {fileID: 7670367056169718938}
+  movement: {fileID: 8198805922179210626}
+  dmgSource: {fileID: 6255607510067165650, guid: 2fddc3ba16e056e46a69f84edea76ca8,
+    type: 3}
+  status: {fileID: 7609168205937253819}
+  state: {fileID: 3023004234467269243}
+  database: {fileID: 11400000, guid: af584c29840106d44b5a46fdc8fccd95, type: 2}
 --- !u!114 &3023004234467269243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1112,27 +1132,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: {fileID: 3023004234467269243}
-  rigidbody: {fileID: 552058911}
+  rigidbody: {fileID: 0}
   maxSpeed: 3
   direction: {x: 0, y: 0, z: 0}
   _navMeshAgent: {fileID: 1879724542417874820}
-  rangeMoving: 6
---- !u!54 &552058911
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8980390744223769135}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!195 &1879724542417874820
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1155,25 +1158,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &2551758845244253100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8980390744223769135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bc15e4791aab6041b02c939e58c80f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  health: {fileID: 5958425783444085752}
-  attackBase: {fileID: 7670367056169718938}
-  movement: {fileID: 8198805922179210626}
-  dmgSource: {fileID: 0}
-  status: {fileID: 7609168205937253819}
-  state: {fileID: 3023004234467269243}
 --- !u!114 &5958425783444085752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1191,7 +1175,7 @@ MonoBehaviour:
   maxHP: 200
   isDead: 0
   expOnDeath: 3
-  enemyInfo: {fileID: 2551758845244253100}
+  enemyInfo: {fileID: -9188282561715485390}
 --- !u!114 &7670367056169718938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1218,7 +1202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effects: []
-  objectInfo: {fileID: 2551758845244253100}
+  objectInfo: {fileID: -9188282561715485390}
 --- !u!114 &4701515117358770520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1235,13 +1219,10 @@ MonoBehaviour:
   fireTransform: {fileID: 582504901379131506}
   dmgPrefab: {fileID: 6255607510067165650, guid: 2fddc3ba16e056e46a69f84edea76ca8,
     type: 3}
+  rangeMoving: 10
   timeMove: 1
   moving: {fileID: 8198805922179210626}
   state: {fileID: 3023004234467269243}
-  distance: 10
-  speed: 10
-  atkPoint: 10
-  effectDatas: []
 --- !u!65 &8381020806309411664
 BoxCollider:
   m_ObjectHideFlags: 0

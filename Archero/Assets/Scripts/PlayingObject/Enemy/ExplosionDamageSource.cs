@@ -6,7 +6,7 @@ public class ExplosionDamageSource : DamageSourceBase
 {
     public LayerMask playerMask;
     public Rigidbody bulletRig;
-    private float radiusExplosion = 1.5f;
+    public float radiusExplosion = 1.5f;
     [SerializeField] BulletExplosion explosion;
     protected BulletExplosion currentExplosion;
     public override void Awake()
@@ -31,12 +31,6 @@ public class ExplosionDamageSource : DamageSourceBase
         currentExplosion.particle.Play();
         currentExplosion.audioSource.Play();
         gameObject.SetActive(false);
-    }
-    public void SetUp(float inAtkPoint, float inRadiusExplosion, List<EffectBaseData> inEffectDatas)
-    {
-        atkPoint = inAtkPoint;
-        radiusExplosion = inRadiusExplosion;
-        effectDatas = inEffectDatas;
     }
     private void OnDrawGizmos()
     {

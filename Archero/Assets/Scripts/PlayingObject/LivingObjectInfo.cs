@@ -16,6 +16,7 @@ public class LivingObjectInfo : BaseMonoBehaviour, IEquatable<LivingObjectInfo>
         base.Awake();
         id = idInit;
         idInit = (idInit % (maxID - 1)) + 1;
+        database = MapManager.instance.difficulty.LoadDifficulty(this);
         SetUp();
     }
 
@@ -34,5 +35,12 @@ public class LivingObjectInfo : BaseMonoBehaviour, IEquatable<LivingObjectInfo>
     }
     public virtual void SetUp()
     {
+        health.maxHP = database.MaxHP;
+        if (attackBase!=null)
+            attackBase.CurAttackStyle.delayNextAttack = database.DelayNextAttack;
+        if (movement!=null)
+            movement.maxSpeed = database.Speed;
+        dmgSource.atkPoint = database.AtkPoint;
+        dmgSource.effectDatas = database.EffectDatas;
     }
 }

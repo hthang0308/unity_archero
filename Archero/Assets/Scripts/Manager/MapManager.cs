@@ -14,6 +14,7 @@ public class MapManager : MonoBehaviour
     }
     
     [SerializeField] protected MapInfo mapInit;
+    public Difficulty difficulty;
     [HideInInspector] public MapInfo curMap;
     public CameraControl cameraControl;
     [SerializeField] protected GameObject changingMapCanvas;

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class EnemyCannonAttackStyle : AttackStyleBase<ExplosionDamageSource>
 {
-    public float explosionRadius = 5f;
+    //public float explosionRadius = 5f;
     public float speed = 10f;
     protected Transform player;
-    public override void Awake()
-    {
-        dmgPrefab.SetUp(atkPoint, explosionRadius, effectDatas);
-        base.Awake();
-    }
+    //public override void Awake()
+    //{
+    //    dmgPrefab.SetUp(atkPoint, explosionRadius, effectDatas);
+    //    base.Awake();
+    //}
     public override void OnEnable()
     {
         base.OnEnable();
