@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class EquipmentBaseData : ScriptableObject
 {
+    [HideInInspector] public int level = 1;
+    [HideInInspector] public float cost = 2000;
     [Serializable]
     public enum Type
     {
@@ -34,6 +36,12 @@ public class EquipmentBaseData : ScriptableObject
     public virtual void WrapData(EquipmentDataWrapper wrapper)
     {
         wrapper.equipments.Add(this);
+    }
+
+    public virtual void Upgrade()
+    {
+        level++;
+        cost += 1000;
     }
 
 }

@@ -33,5 +33,11 @@ public class ClothData : EquipmentBaseData
         player.movement.maxSpeed += speed;
     }
 
+    public override void Upgrade()
+    {
+        base.Upgrade();
+        speed += 0.25f;
+        hP += 5;
+    }
 
 }

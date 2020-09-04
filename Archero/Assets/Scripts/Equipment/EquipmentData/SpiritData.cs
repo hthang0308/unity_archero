@@ -18,4 +18,5 @@ public class SpiritData : EquipmentBaseData
         return result;
     }
 
+
 }

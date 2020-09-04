@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Security.Policy;
 using UnityEngine;
 
 public class EquipmentSaveLoadData : MonoBehaviour
@@ -9,6 +10,8 @@ public class EquipmentSaveLoadData : MonoBehaviour
     public GameObject inventorySlots;
     public EquipmentSlot equipmentButtonPrefab;
     string path;
+
+    public List<EquipmentBaseData> defaultEquipments;
 
     private void Awake()
     {
@@ -30,6 +33,7 @@ public class EquipmentSaveLoadData : MonoBehaviour
         BinaryFormatter bf = new BinaryFormatter();
         if (File.Exists(path + "/EquipmentSlot.dat"))
         {
+
             EquipmentDataWrapper data = new EquipmentDataWrapper();
             FileStream file = File.Open(path + "/EquipmentSlot.dat", FileMode.Open);
             JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), data);
@@ -38,6 +42,14 @@ public class EquipmentSaveLoadData : MonoBehaviour
             {
                 EquipmentSlot slot = GameObject.Instantiate(equipmentButtonPrefab, inventorySlots.transform);
                 slot.Equipment = data.equipments[i];
+            }
+        }
+        else
+        {
+            for (int i = 0; i < defaultEquipments.Count; i++)
+            {
+                EquipmentSlot slot = GameObject.Instantiate(equipmentButtonPrefab, inventorySlots.transform);
+                slot.Equipment = defaultEquipments[i];
             }
         }
 

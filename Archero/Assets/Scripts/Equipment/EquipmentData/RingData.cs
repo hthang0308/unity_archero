@@ -30,4 +30,11 @@ public class RingData : EquipmentBaseData
         player.health.maxHP += hP;
     }
 
+    public override void Upgrade()
+    {
+        base.Upgrade();
+        hP += 3;
+        atk += 3;
+    }
+
 }

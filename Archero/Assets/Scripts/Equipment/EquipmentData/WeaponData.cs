@@ -31,4 +31,11 @@ public class WeaponData : EquipmentBaseData
         
     }
 
+    public override void Upgrade()
+    {
+        base.Upgrade();
+        speedAtk += 0.25f;
+        atk += 3;
+    }
+
 }
