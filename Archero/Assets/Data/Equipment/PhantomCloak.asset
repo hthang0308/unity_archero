@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52156bd91a280b44b0e22186a0a23a9, type: 3}
   m_Name: PhantomCloak
   m_EditorClassIdentifier: 
+  level: 1
+  cost: 2000
   type: 1
   icon: {fileID: 21300000, guid: e7011b26e84b32d499df1d657f110814, type: 3}
-  hP: 50
-  speed: 2
+  hP: 10
+  speed: 0.5

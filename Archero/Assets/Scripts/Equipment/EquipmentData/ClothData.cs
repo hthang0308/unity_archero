@@ -35,6 +35,11 @@ public class ClothData : EquipmentBaseData
 
     public override void Upgrade()
     {
+        if (CoinSaveLoad.instance.coins < cost)
+        {
+            Debug.Log(true);
+            return;
+        }
         base.Upgrade();
         speed += 0.25f;
         hP += 5;

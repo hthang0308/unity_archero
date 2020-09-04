@@ -8,6 +8,7 @@ public class EquipmentSlot : MonoBehaviour
 {
     public Image icon;
     public TextMeshProUGUI textBox;
+    public Button buttonUpgrade;
     [SerializeField] protected EquipmentBaseData equipment;
 
     public EquipmentBaseData Equipment { get => equipment;
@@ -18,34 +19,51 @@ public class EquipmentSlot : MonoBehaviour
             {
                 icon.sprite = equipment.Icon;
                 textBox.text = "Lvl " + equipment.level;
+                buttonUpgrade.gameObject.SetActive(true);
+            }
+            else
+            {
+                textBox.text = "";
+                buttonUpgrade.gameObject.SetActive(false);
             }
         }
     }
 
     public void Awake()
     {
-        if (equipment != null)
-            icon.sprite = equipment.Icon;
+        if (Equipment != null)
+            icon.sprite = Equipment.Icon;
+        else
+        {
+            buttonUpgrade.gameObject.SetActive(false);
+            textBox.text = "";
+        }
     }
 
     public void OnClickToAddButton()
     {
-        equipment = equipment.Equip();
-        if (equipment == null)
+        Equipment = Equipment.Equip();
+        if (Equipment == null)
             Destroy(gameObject);
-        else icon.sprite = equipment.Icon;
+        else icon.sprite = Equipment.Icon;
     }
 
     public void OnClickToRemoveButton()
     {
-        if (equipment == null)
+        if (Equipment == null)
             return;
         EquipmentSlot tmpSlot = Instantiate(CurrentEquipment.instance.buttonPrefab);
-        tmpSlot.equipment = equipment;
-        tmpSlot.icon.sprite = equipment.Icon;
+        tmpSlot.Equipment = Equipment;
+        tmpSlot.icon.sprite = Equipment.Icon;
         tmpSlot.transform.SetParent(CurrentEquipment.instance.inventory.transform, false);
         icon.sprite = null;
-        equipment = null;
+        Equipment = null;
 
+    }
+
+    public void Upgrade()
+    {
+        equipment.Upgrade();
+        textBox.text = "Lvl " + equipment.level;
     }
 }
