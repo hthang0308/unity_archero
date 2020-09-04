@@ -33,6 +33,8 @@ public class WeaponData : EquipmentBaseData
 
     public override void Upgrade()
     {
+        if (CoinSaveLoad.instance.coins < cost)
+            return;
         base.Upgrade();
         speedAtk += 0.25f;
         atk += 3;
