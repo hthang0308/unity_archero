@@ -32,6 +32,11 @@ public class RingData : EquipmentBaseData
 
     public override void Upgrade()
     {
+        if (CoinSaveLoad.instance.coins < cost)
+        {
+            Debug.Log(true);
+            return;
+        }
         base.Upgrade();
         hP += 3;
         atk += 3;

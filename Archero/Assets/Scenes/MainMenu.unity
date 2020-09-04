@@ -614,6 +614,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cloth
       objectReference: {fileID: 0}
+    - target: {fileID: 6919397131256410471, guid: 09e9da3aa4193e949a39875cfba7ca6a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClickToRemoveButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919397131256410471, guid: 09e9da3aa4193e949a39875cfba7ca6a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1523195244}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09e9da3aa4193e949a39875cfba7ca6a, type: 3}
 --- !u!1001 &373871506
@@ -763,6 +773,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ring
       objectReference: {fileID: 0}
+    - target: {fileID: 6919397131256410471, guid: 09e9da3aa4193e949a39875cfba7ca6a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClickToRemoveButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919397131256410471, guid: 09e9da3aa4193e949a39875cfba7ca6a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 779097682}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09e9da3aa4193e949a39875cfba7ca6a, type: 3}
 --- !u!1 &483454720
@@ -1073,6 +1093,7 @@ GameObject:
   - component: {fileID: 927572427}
   - component: {fileID: 927572429}
   - component: {fileID: 927572428}
+  - component: {fileID: 927572430}
   m_Layer: 5
   m_Name: MoneyValue
   m_TagString: Untagged
@@ -1097,7 +1118,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 36, y: -25}
+  m_AnchoredPosition: {x: 36, y: -42}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &927572428
@@ -1128,8 +1149,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1219,6 +1240,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 927572426}
   m_CullTransparentMesh: 0
+--- !u!114 &927572430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927572426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46ccf24b897ffe43952f4cff6ff99d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coins: 0
+  textBox: {fileID: 927572428}
 --- !u!1 &1066135439
 GameObject:
   m_ObjectHideFlags: 0
@@ -1651,6 +1686,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spirit
       objectReference: {fileID: 0}
+    - target: {fileID: 6919397131256410471, guid: 09e9da3aa4193e949a39875cfba7ca6a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClickToRemoveButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919397131256410471, guid: 09e9da3aa4193e949a39875cfba7ca6a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1519476666}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09e9da3aa4193e949a39875cfba7ca6a, type: 3}
 --- !u!1 &1339867736
@@ -2923,6 +2968,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919397131256410471, guid: 09e9da3aa4193e949a39875cfba7ca6a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClickToRemoveButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09e9da3aa4193e949a39875cfba7ca6a, type: 3}

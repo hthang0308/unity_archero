@@ -17,6 +17,11 @@ public class SpiritData : EquipmentBaseData
         curWeapon.Equipment = this;
         return result;
     }
-
+    public override void Upgrade()
+    {
+        if (CoinSaveLoad.instance.coins < cost)
+            return;
+        base.Upgrade();
+    }
 
 }

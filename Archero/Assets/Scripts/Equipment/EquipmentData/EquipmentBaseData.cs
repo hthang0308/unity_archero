@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class EquipmentBaseData : ScriptableObject
 {
-    [HideInInspector] public int level = 1;
-    [HideInInspector] public float cost = 2000;
+    public int level = 1;
+    public int cost = 2000;
     [Serializable]
     public enum Type
     {
@@ -40,8 +40,10 @@ public class EquipmentBaseData : ScriptableObject
 
     public virtual void Upgrade()
     {
+        CoinSaveLoad.instance.coins -= cost;
         level++;
-        cost += 1000;
+        cost += 500;
+        CoinSaveLoad.instance.SaveCoinsData();
     }
 
 }

@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ebdafa92e106142a56dadc32516f50, type: 3}
   m_Name: LaserBat
   m_EditorClassIdentifier: 
+  level: 1
+  cost: 2000
   type: 3
   icon: {fileID: 21300000, guid: 28daecff0202da4468d4282519ffed2d, type: 3}

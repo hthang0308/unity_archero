@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ccd60ebd7d2b714e8c301038299386a, type: 3}
   m_Name: WolfRing
   m_EditorClassIdentifier: 
+  level: 1
+  cost: 2000
   type: 2
   icon: {fileID: 21300000, guid: b0a2390ab9d9fb9429cee2315bce7ea5, type: 3}
-  hP: 20
-  atk: 10
+  hP: 44
+  atk: 34
