@@ -401,6 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c92600c3ecc20d54583576159ca00c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapInfo: {fileID: 2756728225580122777}
   livingObject:
   - {fileID: 4310844987234449975, guid: 3605a7f2c3eacec47a3c8c134801a728, type: 3}
   - {fileID: -8293256192013829800, guid: a0740f648a2224844a894ba6a107d0a9, type: 3}

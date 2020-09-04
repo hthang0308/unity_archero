@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Difficulty : BaseMonoBehaviour
 {
+    public MapInfo mapInfo;
     [SerializeField] List<LivingObjectInfo> livingObject;
     [SerializeField] List<LivingData> data;
     public LivingData LoadDifficulty(LivingObjectInfo info)

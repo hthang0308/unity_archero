@@ -24,6 +24,8 @@ public class MapManager : MonoBehaviour
 
     public void Awake()
     {
+        difficulty = ChosenMap.difficulty;
+        mapInit = difficulty.mapInfo;
         ChangeMap();
     }
 
