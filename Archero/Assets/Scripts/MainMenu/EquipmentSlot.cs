@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class EquipmentSlot : MonoBehaviour
 {
     public Image icon;
+    public TextMeshProUGUI textBox;
     [SerializeField] protected EquipmentBaseData equipment;
 
     public EquipmentBaseData Equipment { get => equipment;
@@ -13,7 +15,10 @@ public class EquipmentSlot : MonoBehaviour
         {
             equipment = value;
             if (equipment != null)
+            {
                 icon.sprite = equipment.Icon;
+                textBox.text = "Lvl " + equipment.level;
+            }
         }
     }
 
