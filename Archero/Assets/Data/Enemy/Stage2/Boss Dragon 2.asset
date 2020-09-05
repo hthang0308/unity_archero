@@ -19,6 +19,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 09fb14312fc87dd4b98ec46a0f7a2acc, type: 2}
   speed: 5
   expOnDeath: 3
+  goldEachExp: 1000
   delayNextAttack1: 3
   attackPerTime1: 3
   atkPoint1: 10

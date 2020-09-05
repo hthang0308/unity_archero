@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a595bce0d706144a8faca2e7a0fae6, type: 3}
   m_Name: Cannon
   m_EditorClassIdentifier: 
-  maxHP: 100
+  maxHP: 200
   delayNextAttack: 3
   atkPoint: 5
   effectDatas: []
   speed: 5
   expOnDeath: 3
+  goldEachExp: 100
   radiusExplosion: 5
   speedBullet: 10

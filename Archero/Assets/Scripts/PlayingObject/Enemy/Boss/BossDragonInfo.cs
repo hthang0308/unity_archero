@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossDragonInfo : LivingObjectInfo
+public class BossDragonInfo : EnemyInfo
 {
     public AttackControlBase atkControl;
     public DamageSourceBase dmgSource2;
@@ -26,7 +26,5 @@ public class BossDragonInfo : LivingObjectInfo
         atk2.durationTailAttack = data.DurationTailAttack;
         atk1.delayNextAttack = data.DelayNextAttack1;
         atk2.delayNextAttack = data.DelayNextAttack2;
-        EnemyHealth healthEnemy = health as EnemyHealth;
-        healthEnemy.expOnDeath = data.ExpOnDeath;
     }
 }

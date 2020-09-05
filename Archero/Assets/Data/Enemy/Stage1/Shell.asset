@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1526e2463431ef42a1b1d0f12d9c835, type: 3}
   m_Name: Shell
   m_EditorClassIdentifier: 
-  maxHP: 100
+  maxHP: 200
   delayNextAttack: 0.5
   atkPoint: 5
   effectDatas: []
   speed: 5
   expOnDeath: 3
+  goldEachExp: 100

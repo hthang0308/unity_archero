@@ -6,6 +6,7 @@ public class EnemyHealth : HealthBase
 {
     private ExperiencePoint playerExp;
     public int expOnDeath = 3;
+    public int goldEachExp = 100;
     [SerializeField] protected LivingObjectInfo enemyInfo;
 
     protected override void OnEnable()
@@ -15,7 +16,7 @@ public class EnemyHealth : HealthBase
     }
     protected override void OnDeath()
     {
-        GoldCoinPool.instance.UseCoin(transform.position, expOnDeath);
+        GoldCoinPool.instance.UseCoin(transform.position, expOnDeath, goldEachExp);
         GameManager.instance.RemoveEnemy(enemyInfo);
         base.OnDeath();
     }
