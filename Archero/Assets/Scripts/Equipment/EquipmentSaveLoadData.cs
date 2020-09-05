@@ -32,7 +32,6 @@ public class EquipmentSaveLoadData : MonoBehaviour
         BinaryFormatter bf = new BinaryFormatter();
         if (File.Exists(path + "/EquipmentSlot.dat"))
         {
-
             EquipmentDataWrapper data = new EquipmentDataWrapper();
             FileStream file = File.Open(path + "/EquipmentSlot.dat", FileMode.Open);
             JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), data);

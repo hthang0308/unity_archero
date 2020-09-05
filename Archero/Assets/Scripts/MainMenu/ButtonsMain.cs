@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class ButtonsMain : MonoBehaviour
 {
     [SerializeField] Animator changingPanel;
-
+    [SerializeField] List<Difficulty> levels;
     public void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -27,5 +27,18 @@ public class ButtonsMain : MonoBehaviour
     public void ChangeToMain()
     {
         changingPanel.SetBool("Equipment", false);
+    }
+    public void Level1()
+    {
+        SetLevel(0);
+    }
+    public void Level2()
+    {
+        SetLevel(1);
+    }
+    public void SetLevel(int i)
+    {
+        ChosenMap.difficulty = levels[i];
+        LoadScene();
     }
 }

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Basic
   m_EditorClassIdentifier: 
   maxHP: 200
-  delayNextAttack: 0.1
-  atkPoint: 40
+  delayNextAttack: 0.5
+  atkPoint: 20
   effectDatas: []
   speed: 8
   expLvUp: 30
