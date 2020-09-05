@@ -16,8 +16,14 @@ public class RingData : EquipmentBaseData
     public override EquipmentBaseData Equip()
     {
         EquipmentSlot curWeapon = CurrentEquipment.instance.ring;
+        if (curWeapon.Equipment != null)
+        {
+            RingData curData = curWeapon.Equipment as RingData;
+            curData.UpdateRemoveCurrentEquipmentStatus();
+        }
         EquipmentBaseData result = curWeapon.Equipment;
         curWeapon.Equipment = this;
+        this.UpdateAddCurrentEquipmentStatus();
         return result;
     }
 
@@ -38,8 +44,20 @@ public class RingData : EquipmentBaseData
             return;
         }
         base.Upgrade();
+        this.UpdateRemoveCurrentEquipmentStatus();
         hP += 3;
         atk += 3;
+        this.UpdateAddCurrentEquipmentStatus();
+    }
+    public override void UpdateAddCurrentEquipmentStatus()
+    {
+        CurrentEquipment.instance.AtkValue += this.atk;
+        CurrentEquipment.instance.HPValue += this.hP;
     }
 
+    public override void UpdateRemoveCurrentEquipmentStatus()
+    {
+        CurrentEquipment.instance.AtkValue -= this.atk;
+        CurrentEquipment.instance.HPValue -= this.hP;
+    }
 }

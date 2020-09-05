@@ -21,8 +21,14 @@ public class ClothData : EquipmentBaseData
     public override EquipmentBaseData Equip()
     {
         EquipmentSlot curWeapon = CurrentEquipment.instance.cloth;
+        if (curWeapon.Equipment != null)
+        {
+            ClothData curData = curWeapon.Equipment as ClothData;
+            curData.UpdateRemoveCurrentEquipmentStatus();
+        }
         EquipmentBaseData result = curWeapon.Equipment;
         curWeapon.Equipment = this;
+        this.UpdateAddCurrentEquipmentStatus();
         return result;
     }
 
@@ -41,8 +47,21 @@ public class ClothData : EquipmentBaseData
             return;
         }
         base.Upgrade();
+        this.UpdateRemoveCurrentEquipmentStatus();
         speed += 0.25f;
         hP += 5;
+        this.UpdateAddCurrentEquipmentStatus();
+    }
+    public override void UpdateAddCurrentEquipmentStatus()
+    {
+        CurrentEquipment.instance.SpeedValue += this.speed;
+        CurrentEquipment.instance.HPValue += this.hP;
+    }
+
+    public override void UpdateRemoveCurrentEquipmentStatus()
+    {
+        CurrentEquipment.instance.SpeedValue -= this.speed;
+        CurrentEquipment.instance.HPValue -= this.hP;
     }
 
 }

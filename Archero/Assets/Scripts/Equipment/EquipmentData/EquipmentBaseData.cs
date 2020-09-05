@@ -46,4 +46,13 @@ public class EquipmentBaseData : ScriptableObject
         CoinSaveLoad.instance.SaveCoinsData();
     }
 
+    public virtual void UpdateAddCurrentEquipmentStatus()
+    {
+
+    }
+
+    public virtual void UpdateRemoveCurrentEquipmentStatus()
+    {
+
+    }
 }

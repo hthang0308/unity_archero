@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerStyleAttack : AttackStyleBase<ArrowDamageSource>
 {
     public List<EffectBaseData> effectDatas = new List<EffectBaseData>();
-    public float atkPoint=10f;
+    public float atkPoint = 10f;
 
     [HideInInspector] public Transform enemyLookAt;
     [SerializeField] protected PlayerState playerAnimator;
@@ -15,10 +15,10 @@ public class PlayerStyleAttack : AttackStyleBase<ArrowDamageSource>
     public float startingDelay = 0.1f;
     protected float countDownStartingDelay;
 
-    //trung voi delaynextAttack nen bo ra
+    public float delayNextShot = 0.1f;
     protected float countDownDelayNextShot;
 
-    public int numberShots = 1; 
+    public int numberShots = 1;
     protected int countDownNumberShots;
 
     //Front
@@ -104,9 +104,7 @@ public class PlayerStyleAttack : AttackStyleBase<ArrowDamageSource>
         }
         else
         {
-            countDownDelayNextShot = delayNextAttack;
-            
-
+            countDownDelayNextShot = delayNextShot;
         }
     }
 
@@ -115,16 +113,16 @@ public class PlayerStyleAttack : AttackStyleBase<ArrowDamageSource>
         if (diagonalShot == 0)
             return;
         Vector3 rotation = fireTransform.forward;
-        for (int i = 1; i<=diagonalShot; i++)
+        for (int i = 1; i <= diagonalShot; i++)
         {
             ArrowDamageSource arrow = dmgPool.GetFromPool(dmgPrefab);
-            arrow.transform.SetPositionAndRotation(fireTransform.position, 
+            arrow.transform.SetPositionAndRotation(fireTransform.position,
                 fireTransform.rotation);
             arrow.SetUpArrow(Quaternion.AngleAxis(diagonalShotAngle * i, Vector3.up) * rotation,
                 distance, speed, penetrate, bouncingWall, effectDatas, atkPoint);
 
             arrow = dmgPool.GetFromPool(dmgPrefab);
-            arrow.transform.SetPositionAndRotation(fireTransform.position, 
+            arrow.transform.SetPositionAndRotation(fireTransform.position,
                 fireTransform.rotation);
             arrow.SetUpArrow(Quaternion.AngleAxis(-diagonalShotAngle * i, Vector3.up) * rotation,
                 distance, speed, penetrate, bouncingWall, effectDatas, atkPoint);
@@ -137,7 +135,7 @@ public class PlayerStyleAttack : AttackStyleBase<ArrowDamageSource>
         Vector3 xDirection = fireTransform.right;
 
         tmpPos -= (xDirection * frontShotDeltaPos * (frontShot - 1)) / 2f;
-        for (int i=0; i<frontShot; i++)
+        for (int i = 0; i < frontShot; i++)
         {
             ArrowDamageSource arrow = dmgPool.GetFromPool(dmgPrefab);
             arrow.transform.SetPositionAndRotation(tmpPos, fireTransform.rotation);
