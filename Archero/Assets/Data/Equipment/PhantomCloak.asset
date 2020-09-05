@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e52156bd91a280b44b0e22186a0a23a9, type: 3}
-  m_Name: PhantomCloak
+  m_Name: PhantomCloak 1
   m_EditorClassIdentifier: 
   level: 1
   cost: 2000
