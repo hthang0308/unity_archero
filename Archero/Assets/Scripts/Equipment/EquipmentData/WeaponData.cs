@@ -19,8 +19,16 @@ public class WeaponData : EquipmentBaseData
     public override EquipmentBaseData Equip()
     {
         EquipmentSlot curWeapon = CurrentEquipment.instance.weapon;
+        if (curWeapon.Equipment != null)
+        {
+            WeaponData curData = curWeapon.Equipment as WeaponData;
+            curData.UpdateRemoveCurrentEquipmentStatus();
+        }
         EquipmentBaseData result = curWeapon.Equipment;
+        
         curWeapon.Equipment = this;
+        this.UpdateAddCurrentEquipmentStatus();
+
         return result;
     }
     public override void Affect(PlayerInfo player)
@@ -36,8 +44,22 @@ public class WeaponData : EquipmentBaseData
         if (CoinSaveLoad.instance.coins < cost)
             return;
         base.Upgrade();
+        this.UpdateRemoveCurrentEquipmentStatus();
         speedAtk += 0.25f;
         atk += 3;
+        this.UpdateAddCurrentEquipmentStatus();
+    }
+
+    public override void UpdateAddCurrentEquipmentStatus()
+    {
+        CurrentEquipment.instance.AtkValue += this.atk;
+        CurrentEquipment.instance.SpeedAtkValue += this.speedAtk;
+    }
+
+    public override void UpdateRemoveCurrentEquipmentStatus()
+    {
+        CurrentEquipment.instance.AtkValue -= this.atk;
+        CurrentEquipment.instance.SpeedAtkValue -= this.speedAtk;
     }
 
 }

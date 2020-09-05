@@ -52,6 +52,7 @@ public class EquipmentSlot : MonoBehaviour
     {
         if (Equipment == null)
             return;
+        equipment.UpdateRemoveCurrentEquipmentStatus();
         EquipmentSlot tmpSlot = Instantiate(CurrentEquipment.instance.buttonPrefab);
         tmpSlot.Equipment = Equipment;
         tmpSlot.icon.sprite = Equipment.Icon;
