@@ -8,7 +8,7 @@ public class GoldCoinBehavior : BaseMonoBehaviour
     protected static ExperiencePoint playerExperience;
     protected static Money playerMoney;
     [SerializeField] protected float expPoint = 5;
-    [SerializeField] protected int goldDrop = 100;
+    public int goldDrop = 100;
     [SerializeField] protected float maxSpeed = 20f;
     protected float speed = 0f;
     public Rigidbody rigidbody;

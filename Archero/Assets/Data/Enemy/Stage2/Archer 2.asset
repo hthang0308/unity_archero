@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a268c72c14fd10e4b9c2d78599483709, type: 3}
   m_Name: Archer 2
   m_EditorClassIdentifier: 
-  maxHP: 200
+  maxHP: 300
   delayNextAttack: 2
-  atkPoint: 10
+  atkPoint: 5
   effectDatas: []
   speed: 5
   expOnDeath: 1
+  goldEachExp: 300
   rangeMove: 10
   timeMove: 2
   bulletMaxDistance: 30

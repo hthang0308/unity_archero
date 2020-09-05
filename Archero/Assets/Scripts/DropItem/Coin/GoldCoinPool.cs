@@ -32,11 +32,14 @@ public class GoldCoinPool : BaseMonoBehaviour
         coinPool.UpdateFixed();
     }
 
-    public void UseCoin(Vector3 postion, int number)
+    public void UseCoin(Vector3 postion, int number, int goldEachExp)
     {
         for (int i=0; i<number; i++)
         {
             GoldCoinBehavior coin = coinPool.GetFromPool(coinPrefab);
+            //gan gia tri tien cho exp coin
+            coin.goldDrop = goldEachExp;
+
             Vector3 velocity = new Vector3();
             velocity.x = Random.Range(-sideForce, sideForce);
             velocity.z = Random.Range(-sideForce, sideForce);
