@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ccd60ebd7d2b714e8c301038299386a, type: 3}
-  m_Name: WolfRing 1
+  m_Name: WolfRing
   m_EditorClassIdentifier: 
   level: 1
   cost: 2000
